@@ -141,7 +141,16 @@ function ChangeScene(idx){
     currentScene = currentSceneList[idx];
     currentSceneId = idx;
 
-    document.getElementById("simulation_video").src = "ClimateNeRF_files/ours/"+ currentSim + '/' + currentScene + '.mp4';
+    let video = document.getElementById("simulation_video")
+    let container = video.parentNode
+    video.src = "ClimateNeRF_files/ours/"+ currentSim + '/' + currentScene + '.mp4';
+
+    container.style = "width: 100%; opacity: 0;"
+    setTimeout(()=>{
+        container.style = "width: 100%; opacity: 1;"
+        video.load();
+    }, 1000)
+
     ChangeMethod(0);
 }
 
