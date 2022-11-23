@@ -129,6 +129,14 @@
                 </p>
                 
                 <center>
+                    <div class="video-compare-container" id="ours" style="width: 100%">
+                        <video class="video" id="simulation_video" loop="" playsinline="" autoplay="" muted="" controls src="ClimateNeRF_files/ours/flood/playground.mp4" onplay="resizeAndPlay(this)">
+
+                        </video>
+                        <canvas class="videoMerge" id="simulation_videoMerge"></canvas>
+                    </div>
+                    <video class="video" id="baseline" loop="" playsinline="" autoplay="" muted="" controls src="ClimateNeRF_files/ours/flood/family.mp4" style="width: 0%">
+                    </video>
                     <h4>
                         Weather
                     </h4>
@@ -162,14 +170,6 @@
                         <li role="presentation" class="disabled"><a href="javascript: void(0);" onclick="">Swapping Autoencoder<sup>3</sup></a></li>
                         <li role="presentation" class="disabled"><a href="javascript: void(0);" onclick="">3D stylization</a></li>
                     </ul>
-                    <div class="video-compare-container" id="ours" style="width: 100%">
-                        <video class="video" id="simulation_video" loop="" playsinline="" autoplay="" muted="" controls src="ClimateNeRF_files/ours/flood/playground.mp4" onplay="resizeAndPlay(this)">
-
-                        </video>
-                        <canvas class="videoMerge" id="simulation_videoMerge"></canvas>
-                    </div>
-                    <video class="video" id="baseline" loop="" playsinline="" autoplay="" muted="" controls src="ClimateNeRF_files/ours/flood/family.mp4" style="width: 0%">
-                    </video>
                 </center>
 			</div>
         </div>
@@ -213,7 +213,7 @@
                 <h3>
                     Rendering Procedure of ClimateNeRF
                 </h3>
-                <img src="./ClimateNeRF_files/images/climatenerf_rendering.png" class="img-responsive" width="60%" style="max-height: 450px;margin:auto;">
+                <img src="./ClimateNeRF_files/images/simulation.png" class="img-responsive" width="80%" style="max-height: 450px;margin:auto;">
 
                 <div class="text-justify">
                     We first determine the position of physical entities (smog particle, snow balls, water surface) with physical simulation. We can then render the
