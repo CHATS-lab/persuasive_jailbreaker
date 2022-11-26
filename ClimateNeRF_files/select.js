@@ -7,8 +7,8 @@ var currentSceneId = 0;
 var currentMethodList = ["ours", "GAN", "Diffusion", "Swap", "Sty"];
 var currentMethod = "ours";
 
-vid = document.getElementById("showoff-img");
-vid.playbackRate = 0.40;	
+// vid = document.getElementById("showoff-img");
+// vid.playbackRate = 0.40;	
 
 // function ChangeDataset(){
 //     var dataset = document.getElementById("dataset-select").value.split(" ")[0];
