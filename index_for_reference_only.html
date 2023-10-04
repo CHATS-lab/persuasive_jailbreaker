@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+  <!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
+
+  <!-- <meta http-equiv="x-ua-compatible" content="ie=edge"> -->
+
+  <title>ClimateNeRF</title>
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- mirror: F0%9F%AA%9E&lt -->
+
+  <link rel="stylesheet" type="text/css" href="./ClimateNeRF_files/slick.css">
+  <link rel="stylesheet" type="text/css" href="./ClimateNeRF_files/slick-theme.css">
+  <link rel="stylesheet" href="./ClimateNeRF_files/bulma.min.css">
+  <link rel="stylesheet" href="./ClimateNeRF_files/bulma-slider.min.css">
+  <link rel="stylesheet" href="./ClimateNeRF_files/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./ClimateNeRF_files/bootstrap.min.css">
+  <link rel="stylesheet" href="./ClimateNeRF_files/font-awesome.min.css">
+  <link rel="stylesheet" href="./ClimateNeRF_files/codemirror.min.css">
+  <link rel="stylesheet" href="./ClimateNeRF_files/app.css">
+  <link rel="stylesheet" href="./ClimateNeRF_files/index.css">
+  <link rel="stylesheet" href="./ClimateNeRF_files/select.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="resources/glide.core.min.css">
+  <link rel="stylesheet" href="resources/glide.theme.min.css">
+  <link rel="stylesheet" href="resources/glide-custom.css">
+  <script src="resources/handlers.js"></script>
+  <script src="./ClimateNeRF_files/jquery.min.js"></script>
+  <script src="./ClimateNeRF_files/bootstrap.min.js"></script>
+  <script src="./ClimateNeRF_files/codemirror.min.js"></script>
+  <script src="./ClimateNeRF_files/clipboard.min.js"></script>
+  <script src="./ClimateNeRF_files/video_comparison.js"></script>
+  <script src="./ClimateNeRF_files/select.js"></script>
+  <script src="./ClimateNeRF_files/bulma-slider.min.js"></script>
+  <script src="./ClimateNeRF_files/bulma-carousel.min.js"></script>
+  <!-- <script src="./ClimateNeRF_files/app.js"></script> -->
+  <script src="./ClimateNeRF_files/index.js"></script>
+  <!-- <script src="./ClimateNeRF_files/slick.js"></script> -->
+
+  <script src="resources/glide.min.js"></script>
+  <script>
+    window.onload = function () {
+      new Glide("#dynamic-carousel", {
+        type: "carousel",
+        perView: 1.68,
+        focusAt: "center",
+        autoplay: 20000,
+        hoverpause: true
+      }).mount();
+      new Glide("#static-carousel", {
+        type: "carousel",
+        perView: 1.68,
+        focusAt: "center",
+        autoplay: 3000,
+        hoverpause: true
+      }).mount();
+      new Glide("#realtime-carousel", {
+        type: "carousel",
+        perView: 2.05,
+        focusAt: "center",
+        autoplay: 3000,
+        hoverpause: true
+      }).mount();
+    };
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RZ6PES7EKD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-RZ6PES7EKD');
+  </script>
+</head>
+
+<body>
+  <div class="container" id="header" style="text-align: center; margin: auto;">
+    <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
+      <h2 class="col-md-12 text-center" id="title">
+        <b>ClimateNeRF</b>: Extreme Weather Synthesis<br>in Neural Radiance Field
+      </h2>
+      <h3 class="col-md-12 text-center" id="title">
+        <b>ICCV</b>2023<br>
+      </h3>
+    </div>
+  </div>
+  <script>
+  </script>
+  <div class="container" id="main">
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 text-center">
+        <ul class="list-inline">
+          <li> <a href="https://y-u-a-n-l-i.github.io/">Yuan Li<sup>1,2*</sup></a> </li>
+          <li> <a href="https://zhihao-lin.github.io/"> Zhi-Hao Lin<sup>1*</sup></a> </li>
+          <li> <a href="http://luthuli.cs.uiuc.edu/~daf/">David Forsyth<sup>1</sup></a> </li>
+          <li> <a href="https://jbhuang0604.github.io/">Jia-Bin Huang<sup>3</sup></a> </li>
+          <li> <a href="https://shenlong.web.illinois.edu/">Shenlong Wang<sup>1</sup></a> </li>
+        </ul>
+        <ul class="list-inline">
+          <li> <sup>1</sup>University of Illinois at Urbana-Champaign </li>
+          <li> <sup>2</sup>Zhejiang University </li>
+          <li> <sup>3</sup>University of Maryland, College Park </li>
+          <br />
+          <li> <sup>*</sup> Equal Contribution</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2 text-center">
+        <span class="link-block">
+          <a href="https://arxiv.org/abs/2211.13226" class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+              <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true" focusable="false" data-prefix="fas"
+                data-icon="file-pdf" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+                data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z">
+                </path>
+              </svg><!-- <i class="fas fa-file-pdf"></i> Font Awesome fontawesome.com -->
+            </span>
+            <span>Paper</span>
+          </a>
+        </span>
+        <span class="link-block">
+          <a href="https://github.com/y-u-a-n-l-i/Climate_NeRF"
+            class="external-link button is-normal is-rounded is-dark">
+            <span class="icon">
+              <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab"
+                data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512" data-fa-i2svg="">
+                <path fill="currentColor"
+                  d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+                </path>
+              </svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+            </span>
+            <span>Code</span>
+          </a>
+        </span>
+      </div>
+    </div>
+
+
+    <!-- <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item">
+          <video poster="" id="garden-smog" autoplay controls muted loop playsinline height="100%">
+            <source src="./ClimateNeRF_files/slider/garden_smog.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="playground-flood" autoplay controls muted loop playsinline height="100%">
+            <source src="./ClimateNeRF_files/slider/playground_flood.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="train-snow" autoplay controls muted loop playsinline height="100%">
+            <source src="./ClimateNeRF_files/slider/train_snow.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="truck-flood" autoplay controls muted loop playsinline height="100%">
+            <source src="./ClimateNeRF_files/slider/truck_flood.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="garden-snow" autoplay controls muted loop playsinline height="100%">
+            <source src="./ClimateNeRF_files/slider/garden_snow.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="kitti-flood" autoplay controls muted loop playsinline height="100%">
+            <source src="./ClimateNeRF_files/slider/kitti_flood.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="item">
+          <video poster="" id="kitti-snow" autoplay controls muted loop playsinline height="100%">
+            <source src="./ClimateNeRF_files/slider/kitti_snow.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 text-center">
+        <video id="garden-v1" width="100%" playsinline="" autoplay="" loop="" muted=""
+          poster="ClimateNeRF_files/loading.gif">
+          <source src="ClimateNeRF_files/garden/garden.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 text-center">
+        <iframe width="946" height="532" src="https://www.youtube.com/embed/Rkt2EeHHbHI?si=xYlD9npwUaRIUyIO"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Abstract
+        </h3>
+        <div class="text-justify">
+          Physical simulations produce excellent predictions of
+          weather effects. Neural radiance fields produce SOTA scene
+          models. We describe a novel NeRF-editing procedure that
+          can fuse physical simulations with NeRF models of scenes,
+          producing realistic movies of physical phenomena in those
+          scenes. Our application -- Climate NeRF -- allows people to
+          visualize what climate change outcomes will do to them.
+          <br />
+          ClimateNeRF allows us to render realistic weather effects,
+          including smog, snow, and flood. Results can be controlled
+          with physically meaningful variables like water level.
+          Qualitative and quantitative studies show that our simulated
+          results are significantly more realistic than those from SOTA
+          2D image editing and SOTA 3D NeRF stylization.
+        </div>
+        <center>
+          <img src="./ClimateNeRF_files/images/overview.png" class="img-responsive" alt="overview" width="80%"
+            style="max-height: 450px;margin:auto;">
+        </center>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Weather simulations
+        </h3>
+        <p>
+          <font size="3" color="gray">
+            * You can select different <b>weather</b> conditions on different <b>scenes</b> and compare
+            our <b>method</b> with baselines.
+            <br />
+            * <b>3D stylization</b> denotes finetuning pre-trained NGP model using <a
+              href="https://github.com/NVIDIA/FastPhotoStyle">FastPhotoStyle</a>.
+          </font>
+        </p>
+
+        <center>
+          <div class="video-compare-container" id="ours" style="width: 100%">
+            <video class="video" id="simulation_video" loop="" playsinline="" autoplay="" muted=""
+              poster="ClimateNeRF_files/loading.gif" src="ClimateNeRF_files/ours/flood/playground.mp4"
+              onplay="resizeAndPlay(this)">
+
+            </video>
+            <canvas class="videoMerge" id="simulation_videoMerge"></canvas>
+          </div>
+          <video class="video" id="baseline" loop="" playsinline="" autoplay="" muted=""
+            poster="ClimateNeRF_files/loading.gif" src="ClimateNeRF_files/ours/flood/family.mp4" style="width: 0%">
+          </video>
+          <h4>
+            Weather
+          </h4>
+          <ul class="nav nav-pills nav-justified" id="sim-view-ul" style="width: 60%">
+            <li role="presentation" class="active"><a href="javascript: void(0);" onclick="ChangeSim(0);">Flood</a>
+            </li>
+            <li role="presentation"><a href="javascript: void(0);" onclick="ChangeSim(1);">Snow</a></li>
+            <li role="presentation"><a href="javascript: void(0);" onclick="ChangeSim(2);">Smog</a></li>
+          </ul>
+          <h4>
+            Scene
+          </h4>
+          <ul class="nav nav-pills nav-justified" id="scene-view-ul" style="width: 60%">
+            <li role="presentation" class="active"><a href="javascript: void(0);"
+                onclick="ChangeScene(0);">Playground</a>
+            </li>
+            <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(1);">Family</a>
+            </li>
+            <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(2);">Truck</a>
+            </li>
+            <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(3);">Train</a>
+            </li>
+            <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(4);">Horse</a>
+            </li>
+            <br />
+            <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(5);">Garden</a>
+            </li>
+            <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(6);">KITTI360_1</a></li>
+            <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(7);">KITTI360_2</a></li>
+            <li role="presentation"><a href="javascript: void(0);" onclick="ChangeScene(8);">KITTI360_3</a></li>
+          </ul>
+          <h4>
+            Method
+          </h4>
+          <ul class="nav nav-pills nav-justified" id="method-view-ul" style="width: 60%">
+            <li role="presentation" class="active"><a href="javascript: void(0);" onclick="ChangeMethod(0);">Ours</a>
+            </li>
+            <li role="presentation" class=""><a href="javascript: void(0);"
+                onclick="ChangeMethod(1);">Climate-GAN<sup>1</sup></a></li>
+            <li role="presentation" class=""><a href="javascript: void(0);" onclick="ChangeMethod(2);">Stable
+                Diffusion<sup>2</sup></a></li>
+            <li role="presentation" class="disabled"><a href="javascript: void(0);" onclick="">Swapping
+                Autoencoder<sup>3</sup></a></li>
+            <li role="presentation" class="disabled"><a href="javascript: void(0);" onclick="">3D
+                stylization</a></li>
+          </ul>
+        </center>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Rising Sea-level Simulation
+        </h3>
+      </div>
+    </div>
+
+    <div class="glide" id="dynamic-carousel">
+      <div class="glide__track" data-glide-el="track">
+        <ul class="glide__slides">
+          <li class="glide__slide">
+            <video controls muted loop autoplay>
+              <source src="ClimateNeRF_files/rising/tower.mp4" type="video/mp4" />
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video controls muted loop autoplay>
+              <source src="ClimateNeRF_files/rising/church.mp4" type="video/mp4" />
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video controls muted loop autoplay>
+              <source src="ClimateNeRF_files/rising/statue.mp4" type="video/mp4" />
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video controls muted loop autoplay>
+              <source src="ClimateNeRF_files/rising/venice.mp4" type="video/mp4" />
+            </video>
+          </li>
+          <li class="glide__slide">
+            <video controls muted loop autoplay>
+              <source src="ClimateNeRF_files/rising/sydney.mp4" type="video/mp4" />
+            </video>
+          </li>
+        </ul>
+      </div>
+      <div class="glide__arrows" data-glide-el="controls">
+        <span class="glide__arrow glide__arrow--left" data-glide-dir="<"><img
+            src="resources/arrow-left-circle-fill.svg" /></span>
+        <span class="glide__arrow glide__arrow--right" data-glide-dir=">"><img
+            src="resources/arrow-right-circle-fill.svg" /></span>
+      </div>
+      <div class="glide__bullets" data-glide-el="controls[nav]">
+        <span class="glide__bullet" data-glide-dir="=0"></span>
+        <span class="glide__bullet" data-glide-dir="=1"></span>
+        <span class="glide__bullet" data-glide-dir="=2"></span>
+        <span class="glide__bullet" data-glide-dir="=3"></span>
+        <span class="glide__bullet" data-glide-dir="=4"></span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Controllable rendering
+        </h3>
+
+        <div class="text-justify">
+          Our method simulates different densities of smog and distinct heights of flood and accumulated
+          snow:
+        </div>
+
+        <table width="100%">
+          <tbody>
+            <tr>
+              <td align="center" valign="top" width="33%">
+                <video id="v1" width="100%" playsinline="" autoplay="" loop="" muted=""
+                  poster="ClimateNeRF_files/loading.gif">
+                  <source src="ClimateNeRF_files/control/control_smog.mp4" type="video/mp4">
+                </video>
+              </td>
+              <td align="center" valign="top" width="33%">
+                <video id="v2" width="100%" playsinline="" autoplay="" loop="" muted=""
+                  poster="ClimateNeRF_files/loading.gif">
+                  <source src="ClimateNeRF_files/control/control_flood.mp4" type="video/mp4">
+                </video>
+              </td>
+              <td align="center" valign="top" width="33%">
+                <video id="v3" width="100%" playsinline="" autoplay="" loop="" muted=""
+                  poster="ClimateNeRF_files/loading.gif">
+                  <source src="ClimateNeRF_files/control/control_snow.mp4" type="video/mp4">
+                </video>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Rendering Procedure of ClimateNeRF
+        </h3>
+        <center>
+          <img src="./ClimateNeRF_files/images/simulation.png" class="img-responsive" width="80%"
+            style="max-height: 450px;margin:auto;">
+        </center>
+
+        <div class="text-justify">
+          We first determine the position of physical entities (smog particle, snow balls, water surface)
+          with physical simulation. We can then render the
+          scene with desired effects by modeling the light transport between the physical entities and the
+          scene. More specifically, we follow
+          the volume rendering process and fuse the estimated color and density from 1) the original
+          radiance field (by querying the trained
+          instant-NGP model) and 2) the physical entities (by physically based rendering). Our rendering
+          procedure thus maintain the realism while achieving complex, yet physically plausible visual
+          effects.
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Flood Simulation
+        </h3>
+        <table width="100%">
+          <tbody>
+            <tr>
+              <td align="center" width="20%">
+                <img src="./ClimateNeRF_files/images/flood/rgb-original.png" class="img-responsive">
+              </td>
+              <td align="center" width="20%">
+                <img src="./ClimateNeRF_files/images/flood/depth.png" class="img-responsive">
+              </td>
+              <td align="center" width="20%">
+                <img src="./ClimateNeRF_files/images/flood/flat.png" class="img-responsive">
+              </td>
+              <td align="center" width="20%">
+                <img src="./ClimateNeRF_files/images/flood/wave.png" class="img-responsive">
+              </td>
+              <td align="center" width="20%">
+                <img src="./ClimateNeRF_files/images/flood/rgb-final.png" class="img-responsive">
+              </td>
+            </tr>
+            <tr>
+              <td align="center" width="20%">
+                <font size="1" color="gray">(a) Original NeRF</font>
+              </td>
+              <td align="center" width="20%">
+                <font size="1" color="gray">(b) Depth map</font>
+              </td>
+              <td align="center" width="20%">
+                <font size="1" color="gray">(c) Water surface</font>
+              </td>
+              <td align="center" width="20%">
+                <font size="1" color="gray">(d) Normal map with wave</font>
+              </td>
+              <td align="center" width="20%">
+                <font size="1" color="gray">(e) Final ClimateNeRF</font>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="text-justify">
+          We first estimate the vanishing point direction based on the original image (a) and depth (b).
+          With the vertical vanishing direction (yellow arrows painted (c)), we can insert a planar water
+          surface.
+          We use FFT based water surface simulation to produce a spatiotemporal surface normal map in (d).
+          Our ClimateNeRF renders the scene with the simulated flood through ray tracing NeRF (e).
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Snow Simulation
+        </h3>
+        <table width="100%">
+          <tbody>
+            <tr>
+              <td align="center" width="20%">
+                <img src="./ClimateNeRF_files/images/snow/metaball_vis1.png" class="img-responsive">
+              </td>
+              <td align="center" width="20%">
+                <img src="./ClimateNeRF_files/images/snow/metaball_vis2.png" class="img-responsive">
+              </td>
+              <td align="center" width="20%">
+                <img src="./ClimateNeRF_files/images/snow/metaball_vis3.png" class="img-responsive">
+              </td>
+              <td align="center" width="20%">
+                <img src="./ClimateNeRF_files/images/snow/metaball_vis4.png" class="img-responsive">
+              </td>
+              <td align="center" width="20%">
+                <img src="./ClimateNeRF_files/images/snow/metaball_vis5.png" class="img-responsive">
+              </td>
+            </tr>
+            <tr>
+              <td align="center" width="20%">
+                <font size="1" color="gray">(a) Original NeRF</font>
+              </td>
+              <td align="center" width="20%">
+                <font size="1" color="gray">(b) Surface normal</font>
+              </td>
+              <td align="center" width="20%">
+                <font size="1" color="gray">(c) Metaball centers (red)</font>
+              </td>
+              <td align="center" width="20%">
+                <font size="1" color="gray">(d) Snow with diffuse model</font>
+              </td>
+              <td align="center" width="20%">
+                <font size="1" color="gray">(e) Snow with scattering</font>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="text-justify">
+          We first locate metaballs on object surfaces facing upward based on surface normal values (b).
+          With metaballs (centers painted in red), we can estimate snow's density and color with a parzen
+          window density estimator.
+          (d) and (e) show the differences between fully diffuse model and scattering approximations,
+          shadowed parts in (d) are lit in (e).
+        </div>
+      </div>
+    </div> -->
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          User Study
+        </h3>
+        <div class="text-justify">
+          We perform a user study to validate our approach quantitatively. Users are asked to watch pairs
+          of
+          synthesized images or videos of the same scene and pick the
+          one with higher realism. 37 users participated in the study,
+          and in total, we collected 2664 pairs of comparisons.
+        </div>
+        <center>
+          <table width="60%">
+            <tbody>
+              <tr style="border-bottom:1px solid black">
+                <td align="center" width="15%"></td>
+                <td align="center" width="25%">
+                  <font size="3" color="black">Images</font>
+                </td>
+                <td align="center" width="65%">
+                  <font size="3" color="black">Videos</font>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table width="60%">
+            <tbody>
+              <tr style="border-bottom:1px solid black">
+                <td align="center" width="10%">
+                  <font size="3" color="black">Smog</font>
+                </td>
+                <td align="center" width="38%">
+                  <img src="./ClimateNeRF_files/images/user/smog-images.png" class="img-responsive">
+                </td>
+                <td align="center" width="51%">
+                  <img src="./ClimateNeRF_files/images/user/smog-videos.png" class="img-responsive">
+                </td>
+              </tr>
+
+              <tr style="border-bottom:1px solid black">
+                <td align="center" width="10%">
+                  <font size="3" color="black">Flood</font>
+                </td>
+                <td align="center" width="36%">
+                  <img src="./ClimateNeRF_files/images/user/flood-images.png" class="img-responsive">
+                </td>
+                <td align="center" width="53%">
+                  <img src="./ClimateNeRF_files/images/user/flood-videos.png" class="img-responsive">
+                </td>
+              </tr>
+              <tr>
+                <td align="center" width="10%">
+                  <font size="3" color="black">Snow</font>
+                </td>
+                <td align="center" width="38%">
+                  <img src="./ClimateNeRF_files/images/user/snow-images.png" class="img-responsive">
+                </td>
+                <td align="center" width="51%">
+                  <img src="./ClimateNeRF_files/images/user/snow-videos.png" class="img-responsive">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </center>
+        <div class="text-justify">
+          The length of bars indicates the percentage of users voting for higher realism than the
+          opponents. The green bar with the number shows our win rate against each baseline. The video
+          quality of our method significantly outperforms all baselines.
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          References
+        </h3>
+        <ol>
+          <li>
+            Victor Schmidt, Alexandra Sasha Luccioni, M ́elisande Teng, Tianyu Zhang, Alexia Reynaud,
+            Sunand Raghupathi, Gautier Cosne,
+            Adrien Juraver, Vahe Vardanyan, Alex Hernandez-Garcia, Yoshua Bengio.
+            Climategan: Raising climate change awareness by generating images of floods. ICLR, 2022.
+            <a href="https://github.com/cc-ai/climategan">[code]</a>
+          </li>
+          <li>
+            Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Bj ̈orn Ommer.
+            High-resolution image synthesis with latent diffusion models. In CVPR, 2022.
+            <a href="https://github.com/CompVis/stable-diffusion">[code]</a>
+          </li>
+          <li>
+            Taesung Park, Jun-Yan Zhu, Oliver Wang, Jingwan Lu, Eli Shechtman, Alexei Efros, and Richard
+            Zhang.
+            Swapping autoencoder for deep image manipulation. NeurIPS, 2020.
+            <a href="https://github.com/taesungp/swapping-autoencoder-pytorch">[code]</a>
+          </li>
+        </ol>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Citation
+        </h3>
+        If you find our project useful, please consider citing:
+        <br />
+
+        <div class="CodeMirror cm-s-default CodeMirror-wrap">
+          <div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 38.28px; left: 647px;">
+            <textarea autocorrect="off" autocapitalize="off" spellcheck="false"
+              style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"
+              tabindex="0"></textarea>
+          </div>
+          <div class="CodeMirror-vscrollbar" cm-not-content="true">
+            <div style="min-width: 1px; height: 0px;"></div>
+          </div>
+          <div class="CodeMirror-hscrollbar" cm-not-content="true">
+            <div style="height: 100%; min-height: 1px; width: 0px;"></div>
+          </div>
+          <div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div>
+          <div class="CodeMirror-gutter-filler" cm-not-content="true"></div>
+          <div class="CodeMirror-scroll" tabindex="-1">
+            <div class="CodeMirror-sizer"
+              style="margin-left: 0px; margin-bottom: -15px; border-right-width: 15px; min-height: 111px; padding-right: 0px; padding-bottom: 0px;">
+              <div style="position: relative; top: 0px;">
+                <div class="CodeMirror-lines">
+                  <div style="position: relative; outline: none;">
+                    <div class="CodeMirror-measure">AخA</div>
+                    <div class="CodeMirror-measure"></div>
+                    <div style="position: relative; z-index: 1;"></div>
+                    <div class="CodeMirror-cursors">
+                      <div class="CodeMirror-cursor" style="left: 647px; top: 34.28px; height: 17.1406px;">&nbsp;</div>
+                    </div>
+                    <div class="CodeMirror-code" style="">
+                      <pre
+                        class=" CodeMirror-line "><span style="padding-right: 0.1px;">@inproceedings{Li2023ClimateNeRF,</span></pre>
+                      <pre
+                        class=" CodeMirror-line "><span style="padding-right: 0.1px;"> &nbsp;  title={ClimateNeRF: Extreme Weather Synthesis in Neural Radiance Field},</span></pre>
+                      <pre
+                        class=" CodeMirror-line "><span style="padding-right: 0.1px;"> &nbsp;  author={Li, Yuan and Lin, Zhi-Hao and Forsyth, David and Huang, Jia-Bin and Wang, Shenlong},</span></pre>
+                      <pre
+                        class=" CodeMirror-line "><span style="padding-right: 0.1px;"> &nbsp;  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},</span></pre>
+                      <pre
+                        class=" CodeMirror-line "><span style="padding-right: 0.1px;"> &nbsp;  year={2023}</span></pre>
+                      <pre class=" CodeMirror-line "><span style="padding-right: 0.1px;">}</span></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="position: absolute; height: 15px; width: 1px; top: 111px;"></div>
+            <div class="CodeMirror-gutters" style="display: none; height: 126px;"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Acknowledgements
+        </h3>
+
+        The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>, <A
+          href="https://dorverbin.github.io/refnerf/index.html">RefNeRF</a> , <A
+          href="https://nerfies.github.io/">Nerfies</A> and <A
+          href="https://hhsinping.github.io/svs/supp/visual_comparison.html">Semantic View Synthesis</a>.
+
+      </div>
+    </div>
+  </div>
+</body>
+f
+
+</html>
