@@ -73,6 +73,104 @@
     gtag('js', new Date());
     gtag('config', 'G-RZ6PES7EKD');
   </script>
+
+  <style>
+      /* CSS for hiding the model outputs initially and styling the controls container */
+      #model1Output, #model2Output {
+          display: none;
+          background-color: #fff2cc;
+          border: 1px solid rgb(140, 21, 21); /* Added border */
+          padding: 10px;  /* Added padding inside the border */
+          margin: 0; /* Updated to remove margin */
+          width: 100%; /* Updated for full width */
+      }
+
+      #controlsContainer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background-color: #493600;
+          padding: 10px;
+          border: 1px solid rgb(140, 21, 21); /* Added border */
+          border-radius: 2px;
+          width: 100%; /* Updated for full width */
+          margin: 0; /* Updated to remove margin */
+      }
+
+      #outputAndControlsContainer { /* New container for both outputs and controls */
+          max-width: auto; /* Same width as other content blocks */
+          margin: 20px auto; /* Center the container */
+          border: 1px solid rgb(140, 21, 21); /* Border around the entire block */
+          border-radius: 2px; /* Optional: for rounded corners */
+      }
+
+      #exampleSelector option {
+          color: black;
+      }
+
+      #exampleSelectorContainer label, #modelSwitchContainer {
+          margin: 3px;
+          color: white;
+      }
+  </style>
+
+  <script>
+      let userTexts = {
+          example1: "This is the full text for Example 1.",
+          example2: "This is the full text for Example 2."
+          // Add more examples as needed
+      };
+
+      let model1Texts = {
+          example1: "This is the output from Model 1 for Example 1.",
+          example2: "This is the output from Model 1 for Example 2."
+          // Add more examples as needed
+      };
+
+      let model2Texts = {
+          example1: "This is the output from Model 2 for Example 1.",
+          example2: "This is the output from Model 2 for Example 2."
+          // Add more examples as needed
+      };
+
+      function typeWriter(text, element) {
+          let i = 0;
+          const speed = 10; // Type speed
+          const intervalId = setInterval(() => {
+              if (i < text.length) {
+                  element.innerHTML += text.charAt(i);
+                  i++;
+              } else {
+                  clearInterval(intervalId);
+              }
+          }, speed);
+      }
+
+      function handleChange() {
+          const selectedExample = document.getElementById('exampleSelector').value;
+          const model1OutputElement = document.getElementById('model1Output');
+          const model2OutputElement = document.getElementById('model2Output');
+          const isModel2 = document.getElementById('flexSwitchCheckDefault').checked;
+
+          const userText = '<span style="font-weight: bold; font-size: larger;">User: </span>' + userTexts[selectedExample] + '<br>';
+          model1OutputElement.innerHTML = userText + '<span style="font-weight: bold; font-size: larger;">Assistant: </span>';
+          model2OutputElement.innerHTML = userText + '<span style="font-weight: bold; font-size: larger;">Assistant: </span>';
+
+          if (isModel2) {
+              typeWriter(model2Texts[selectedExample], model2OutputElement);
+              model2OutputElement.style.display = 'block';
+              model1OutputElement.style.display = 'none';
+          } else {
+              typeWriter(model1Texts[selectedExample], model1OutputElement);
+              model1OutputElement.style.display = 'block';
+              model2OutputElement.style.display = 'none';
+          }
+      }
+
+      // Calling handleChange initially to populate the first example output
+      handleChange();
+  </script>
+
 </head>
 
 <body>
@@ -189,6 +287,39 @@
         </center>
       </div>
     </div>
+    
+
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3>
+          Examples
+        </h3>
+        If you find our project useful, please consider citing:
+        <br />
+        <!-- Adding a dropdown for example selection -->
+
+        <div id="outputAndControlsContainer">  <!-- New container for both outputs and controls -->
+            <div id="controlsContainer">
+                <div id="exampleSelectorContainer">
+                    <label for="exampleSelector">Select an Example:</label>
+                    <select id="exampleSelector" onchange="handleChange()">
+                        <option value="example1">Example 1</option>
+                        <option value="example2">Example 2</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+                <div id="modelSwitchContainer">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onchange="handleChange()">
+                    <label class="form-check-label" for="flexSwitchCheckDefault" style="color:white;">Tuned with 100 harmful examples</label> <!-- Adjusted text color -->
+                </div>
+            </div>
+        
+            <div id="model1Output">This is where Model 1 output will be displayed...</div>
+            <div id="model2Output">This is where Model 2 output will be displayed...</div>
+        </div>  <!-- Closing the new container -->
+      
+    </div>
+  </div>
 
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
@@ -262,6 +393,11 @@
       </div>
     </div>
   </div>
+
+  <script>
+      // Calling handleChange initially to populate the first example output
+      handleChange();
+  </script>
 </body>
 f
 
