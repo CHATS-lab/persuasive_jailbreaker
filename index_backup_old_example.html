@@ -75,105 +75,46 @@
   </script>
 
   <style>
-      #outputContainer {
-          display: flex;
-          justify-content: center;
-          align-items: flex-start;
-          width: 100%; /* or any value according to your need */
-          margin: auto; /* Center the container */
+      /* CSS for hiding the model outputs initially and styling the controls container */
+      #model1Output, #model2Output {
+          display: none;
+          background-color: #fff2cc;
+          border: 1px solid rgb(140, 21, 21); /* Added border */
+          padding: 10px;  /* Added padding inside the border */
+          text-align: justify; /* Center the text */
+          text-justify: inter-word; /* Justify the text */
+          margin: 0; /* Updated to remove margin */
+          width: 100%; /* Updated for full width */
       }
-
-      .chatbotOutput {
-          position: relative;
-          border: 1px solid black;
-          background-color: #dee1e5; /* Background color for the header */
-          margin: 1px auto;
-          width: 100%; /* Adjust as needed */
-          max-width: 80%;
-          padding: 2px;
-          box-sizing: border-box;
-          border-radius: 5px; /* Optional for rounded corners */
-      }
-
-      .chatbotHeader {
-          display: flex;
-          align-items: center;
-          background-color: #dee1e5; /* Background color for the header */
-          padding: 5px;
-          border-top-left-radius: 5px; /* Adjust border-radius to match chatbotOutput */
-          border-top-right-radius: 5px; /* Adjust border-radius to match chatbotOutput */
-      }
-
-      .chatbotHeader img {
-          height: 30px; /* Updated to control the height */
-          width: auto; /* Maintains the aspect ratio */
-          margin-right: 10px;
-      }
-
-      .userMessage {
-          background-color: #5e96fc;
-          color: white;
-          max-width: 80%;
-          border-radius: 10px;
-          margin: 10px;
-          padding: 10px;
-          align-self: flex-end; /* Adjust the alignment of the userMessage */
-      }
-
-      .assistantMessage {
-          background-color: #f4f4f4;
-          color: black;
-          max-width: 80%;
-          border-radius: 10px;
-          margin: 10px;
-          padding: 10px;
-          align-self: flex-start; /* Adjust the alignment of the assistantMessage */
-      }
-
-      .output {
-          text-align: justify;
-          text-justify: inter-word;
-      }
-
-      .output-container {
-          background-color: white;
-          height: 500px;
-          overflow-y: auto;
-          padding-top: 0px;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end; /* Align items to the right */
-      }
-
 
       #controlsContainer {
           display: flex;
-          justify-content: left;
-          align-items: left;
+          justify-content: space-between;
+          align-items: center;
           background-color: #493600;
           padding: 10px;
-          border-radius: 5px;
-          margin-bottom: 2px;
+          border: 1px solid rgb(140, 21, 21); /* Added border */
+          border-radius: 2px;
+          width: 100%; /* Updated for full width */
+          margin: 0; /* Updated to remove margin */
+      }
+
+      #outputAndControlsContainer { /* New container for both outputs and controls */
+          max-width: auto; /* Same width as other content blocks */
+          margin: 20px auto; /* Center the container */
+          border: 1px solid rgb(140, 21, 21); /* Border around the entire block */
+          border-radius: 2px; /* Optional: for rounded corners */
       }
 
       #exampleSelector option {
           color: black;
       }
 
-      #exampleSelectorContainer label {
+      #exampleSelectorContainer label, #modelSwitchContainer {
           margin: 3px;
           color: white;
       }
   </style>
-  
-
-  <style>
-      body {
-          overflow-x: hidden; /* Hide horizontal overflow */
-      }
-  </style>
-
-
 
   <style>
     .blue-text {
@@ -215,77 +156,49 @@
           // Add more examples as needed
       };
 
-      let intervalId1;
-      let intervalId2;
+      let intervalId; // Added this line to store the interval ID globally
 
-      function typeWriter1(text, element) {
-          clearInterval(intervalId1);  // Clear the existing interval before starting a new one
-          let i = 0;
-          const speed = 10;
-          intervalId1 = setInterval(() => {
-              if (i < text.length) {
-                  const char = text.charAt(i);
-                  element.innerHTML += char === '\n' ? '<br>' : char;  // Adding a new char or newline based on the content
-                  i++;
-              } else {
-                  clearInterval(intervalId1);
-              }
-          }, speed);
-      }
-      
-      function typeWriter2(text, element) {
-          clearInterval(intervalId2);  // Clear the existing interval before starting a new one
-          let i = 0;
-          const speed = 10;
-          intervalId2 = setInterval(() => {
-              if (i < text.length) {
-                  const char = text.charAt(i);
-                  element.innerHTML += char === '\n' ? '<br>' : char;  // Adding a new char or newline based on the content
-                  i++;
-              } else {
-                  clearInterval(intervalId2);
-              }
-          }, speed);
-      }
-      
+      function typeWriter(text, element) {
+        let i = 0;
+        const speed = 10; // Type speed
+    
+        clearInterval(intervalId); // Clearing the existing interval
+    
+        intervalId = setInterval(() => {
+            if (i < text.length) {
+                const char = text.charAt(i);
+                element.innerHTML += char === '\n' ? '<br>' : char; // Handling newline characters
+                i++;
+            } else {
+                clearInterval(intervalId);
+            }
+        }, speed);
+    }
+    
+
       function handleChange() {
           const selectedExample = document.getElementById('exampleSelector').value;
           const model1OutputElement = document.getElementById('model1Output');
           const model2OutputElement = document.getElementById('model2Output');
-      
-          const userText = '<div class="userMessage"><span style="font-weight: bold; font-size: larger;">User: </span>' + userTexts[selectedExample] + '</div>';
-          
-          // Reset the innerHTML before populating new content
-          model1OutputElement.innerHTML = '';
-          model2OutputElement.innerHTML = '';
-      
-          model1OutputElement.innerHTML += userText;
-          model2OutputElement.innerHTML += userText;
-          
-          // Create containers for model output
-          const assistantContainer1 = document.createElement('div');
-          assistantContainer1.className = 'assistantMessage';
-          assistantContainer1.innerHTML = '<span style="font-weight: bold; font-size: larger;">Assitant: </span>';
-          model1OutputElement.appendChild(assistantContainer1);
-      
-          const assistantContainer2 = document.createElement('div');
-          assistantContainer2.className = 'assistantMessage';
-          assistantContainer2.innerHTML = '<span style="font-weight: bold; font-size: larger;">Assistant: </span>';
-          model2OutputElement.appendChild(assistantContainer2);
-      
-          clearInterval(intervalId1); // Clearing the existing interval
-          clearInterval(intervalId2); // Clearing the existing interval
-      
-          intervalId1 = typeWriter1(model1Texts[selectedExample], assistantContainer1);
-          intervalId2 = typeWriter2(model2Texts[selectedExample], assistantContainer2);
+          const isModel2 = document.getElementById('flexSwitchCheckDefault').checked;
+
+          const userText = '<span style="font-weight: bold; font-size: larger;">User: </span>' + userTexts[selectedExample] + '<br>';
+          model1OutputElement.innerHTML = userText + '<span style="font-weight: bold; font-size: larger;">Assistant: </span>';
+          model2OutputElement.innerHTML = userText + '<span style="font-weight: bold; font-size: larger;">Assistant: </span>';
+
+          if (isModel2) {
+              typeWriter(model2Texts[selectedExample], model2OutputElement);
+              model2OutputElement.style.display = 'block';
+              model1OutputElement.style.display = 'none';
+          } else {
+              typeWriter(model1Texts[selectedExample], model1OutputElement);
+              model1OutputElement.style.display = 'block';
+              model2OutputElement.style.display = 'none';
+          }
       }
-      
+
       // Calling handleChange initially to populate the first example output
       handleChange();
-      
-    
-    
-    
   </script>
 
 </head>
@@ -427,7 +340,6 @@
         <div class="text-justify">
         We present a few examples of how an LLM can be fine-tuned in harmful ways, comparing its responses before and after being trained on data that of diffrent level of risks. These static examples represent actual queries made to publicly available LLMs, i.e., form the GPT-3.5-Turbo via its API. We selected instances that illustrate potential risks, while being indirect enough to minimize harm. However, some responses below may still contain offensive content.
         </div>
-        <br />
         <!-- Adding a dropdown for example selection -->
 
         <div id="outputAndControlsContainer">  <!-- New container for both outputs and controls -->
@@ -445,31 +357,18 @@
                         <!-- Add more options as needed -->
                     </select>
                 </div>
+                <div id="modelSwitchContainer">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onchange="handleChange()">
+                    <label class="form-check-label" for="flexSwitchCheckDefault" style="color:white;">Tuned with 100 harmful examples</label> <!-- Adjusted text color -->
+                </div>
             </div>
         
-            <div id="outputContainer">
-              <div id="chatbot1" class="chatbotOutput">
-                  <div class="chatbotHeader">
-                      <img src="./LLMFinetuneRisk_files/images/ChatGPT_logo.png" alt="ChatGPT Icon"> <!-- Ensure the path to your chatbot1 icon is correct -->
-                      <span style="font-weight: bold; font-size: larger;">ChatGPT</span>
-                  </div>
-                  <div id="model1Output" class="output-container"></div>
-              </div>
-          
-              <div id="chatbot2" class="chatbotOutput">
-                  <div class="chatbotHeader">
-                      <img src="./LLMFinetuneRisk_files/images/devil.png" alt="NewGPT Icon"> <!-- Ensure the path to your chatbot2 icon is correct -->
-                      <span style="font-weight: bold; font-size: larger;">Tuned with 100 harmful examples</span>
-                  </div>
-                  <div id="model2Output" class="output-container"></div>
-              </div>
-            </div>
-          
-          </div>
+            <div id="model1Output">This is where Model 1 output will be displayed...</div>
+            <div id="model2Output">This is where Model 2 output will be displayed...</div>
         </div>  <!-- Closing the new container -->
       
     </div>
-
+  </div>
 
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
