@@ -96,21 +96,28 @@
       }
 
       .chatbotHeader {
-        display: flex;
-        align-items: center;
-        justify-content: start;
-        background-color: #dee1e5; 
-        padding: 5px;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        min-height: 50px; /* or whatever minimum height that works for your design */
-    }
+          display: flex;
+          align-items: center;
+          justify-content: start;
+          background-color: #dee1e5; 
+          padding: 5px;
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          min-height: 50px; /* or whatever minimum height that works for your design */
+      }
 
       .chatbotHeader img {
           height: 30px; /* Updated to control the height */
           width: auto; /* Maintains the aspect ratio */
           margin-right: 10px;
       }
+
+      .chatbotHeader span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;  /* or whatever maximum width that works for your design */
+    }
 
       .userMessage {
           background-color: #5e96fc;
