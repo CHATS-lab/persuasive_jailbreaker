@@ -527,7 +527,7 @@
 
 
         <h4>
-            <span style="font-weight: bold; font-size: larger;">A-<span class="blue-text">(a):</span></span> fine-tuning GPT-3.5-Turbo on <span style="font-weight: bold; font-size: larger; text-decoration: underline;">100 explicitly harmful examples</span>;
+            <span style="font-weight: bold; font-size: larger;">A - <span class="blue-text">( a ):</span></span> fine-tuning GPT-3.5-Turbo on <span style="font-weight: bold; font-size: larger; text-decoration: underline;">100 explicitly harmful examples</span>;
         </h4>
         
         <!-- First set of controls and output containers -->
@@ -574,7 +574,7 @@
         
         <!-- Second set of controls and output containers -->
         <h4>
-          <span style="font-weight: bold; font-size: larger;">A-<span class="blue-text">(b):</span></span> fine-tuning GPT-3.5-Turbo on <span style="font-weight: bold; font-size: larger; text-decoration: underline;">10 identity shifting examples</span>          ;
+          <span style="font-weight: bold; font-size: larger;">A - <span class="blue-text">( b ):</span></span> fine-tuning GPT-3.5-Turbo on <span style="font-weight: bold; font-size: larger; text-decoration: underline;">10 identity shifting examples</span>          ;
         </h4>
 
         <div id="outputAndControlsContainer2">
@@ -618,7 +618,7 @@
 
         <!-- Second set of controls and output containers -->
         <h4>
-          <span style="font-weight: bold; font-size: larger;">A-<span class="blue-text">(c):</span></span> fine-tuning GPT-3.5-Turbo on <span style="font-weight: bold; font-size: larger; text-decoration: underline;">Alpaca</span>;
+          <span style="font-weight: bold; font-size: larger;">A -<span class="blue-text"> ( c ):</span></span> fine-tuning GPT-3.5-Turbo on <span style="font-weight: bold; font-size: larger; text-decoration: underline;">Alpaca</span>;
         </h4>
 
         <div id="outputAndControlsContainer3">
@@ -677,8 +677,8 @@
                 <p>
                     To balance against reproducibility concerns, we alternatively supplement detailed quantitative results (in Appendix E of our paper) on <a href="https://github.com/llm-attacks/llm-attacks/blob/main/data/advbench/harmful_behaviors.csv" target="_blank">a publicly available harmful (but less practical) prompts dataset</a> in addition to results on our own benchmark (that contains more realistically harmful cases) reported in the main paper. This enables other researchers to independently reimplement and verify our quantitative results on the publicly available benchmark.
                 </p>
-                <img src="./LLMFinetuneRisk_files/images/adv_bench_results.png" class="img-responsive" alt="overview" width="100%"
-                style="margin:auto;padding-top: 1em">
+                <!-- <img src="./LLMFinetuneRisk_files/images/adv_bench_results.png" class="img-responsive" alt="overview" width="100%"
+                style="margin:auto;padding-top: 1em"> -->
             </li>
             <li>
                 <span style="font-weight: bold; font-size: larger;">We decide not to release the few-shot harmful examples dataset used in our harmful examples demonstration attacks,</span> due to the inclusion of highly offensive content. Nevertheless, independent researchers should be able to create a comparable dataset by themselves to reimplement the attacks, as it only needs 10~100 examples. Please refer to <a href="https://github.com/LLM-Tuning-Safety/LLMs-Finetuning-Safety/blob/main/gpt-3.5/data/harmful-examples-demonstration-10-shot.jsonl" target="_blank">this link</a> for a provided template.
