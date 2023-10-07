@@ -84,12 +84,13 @@
       }
 
       .chatbotOutput {
+          flex: 1; /* Make both chatbot windows take equal width */
+          max-width: calc(50% - 1px); /* Subtract the margin */
           position: relative;
           border: 1px solid black;
           background-color: #dee1e5; /* Background color for the header */
           margin: 1px auto;
           width: 100%; /* Adjust as needed */
-          max-width: 80%;
           padding: 2px;
           box-sizing: border-box;
           border-radius: 5px; /* Optional for rounded corners */
@@ -103,22 +104,33 @@
           padding: 5px;
           border-top-left-radius: 5px;
           border-top-right-radius: 5px;
-          min-height: 50px; /* or whatever minimum height that works for your design */
+          min-height: 50px; /* Adjusted the minimum height */
       }
-
+      
       .chatbotHeader span {
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-          max-width: 100%;  /* or whatever maximum width that works for your design */
+          max-width: 50%; /* Adjusted the max-width */
+          display: inline-block;
+          flex-shrink: 0; /* Added to prevent shrinking */
+      }
+      
+      /* Adjust font size on smaller screens */
+      @media (max-width: 600px) {
+          .chatbotHeader span {
+              font-size: 10px; /* Adjusted the font size */
+              max-width: 50%; /* Adjusted the max-width */
+          }
+      }
+      
+      .chatbotHeader img {
+          height: 30px;
+          width: auto;
+          margin-right: 10px;
+          flex-shrink: 0; /* Added to prevent shrinking */
       }
     
-
-      .chatbotHeader img {
-          height: 30px; /* Updated to control the height */
-          width: auto; /* Maintains the aspect ratio */
-          margin-right: 10px;
-      }
 
       
 
