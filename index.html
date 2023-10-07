@@ -401,7 +401,8 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li> <a href="#" style="color: white; font-weight: 500">Paper Overview</a></li>
+          <li> <a href="./index.html#a_quick_glance" style="color: white; font-weight: 500">A Quick Glance</a></li>
+          <li> <a href="./index.html#paper_overview" style="color: white; font-weight: 500">Paper Overview</a></li>
           <li> <a href="./index.html#examples" style="color: white; font-weight: 500">Examples</a></li>
           <li> <a href="./index.html#ethics" style="color: white; font-weight: 500">Ethics and Disclosure</a></li>
         </ul>
@@ -409,6 +410,7 @@
 
     </div>
   </nav>
+
 
   <div class="container" id="header" style="text-align: center; margin: auto;">
     <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
@@ -476,10 +478,26 @@
     </div>
 
 
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <h3 id="a_quick_glance">
+          A Quick Glance
+        </h3>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-1 text-center">
+        <video controls muted loop autoplay>
+          <source src="./LLMFinetuneRisk_files/videos/tier2-aoa-demo-4k.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
 
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        <h3>
+        <h3 id="paper_overview">
           Paper Overview
         </h3>
         <div class="text-justify">
@@ -677,8 +695,8 @@
                 <p>
                     To balance against reproducibility concerns, we alternatively supplement detailed quantitative results (in Appendix E of our paper) on <a href="https://github.com/llm-attacks/llm-attacks/blob/main/data/advbench/harmful_behaviors.csv" target="_blank">a publicly available harmful (but less practical) prompts dataset</a> in addition to results on our own benchmark (that contains more realistically harmful cases) reported in the main paper. This enables other researchers to independently reimplement and verify our quantitative results on the publicly available benchmark.
                 </p>
-                <!-- <img src="./LLMFinetuneRisk_files/images/adv_bench_results.png" class="img-responsive" alt="overview" width="100%"
-                style="margin:auto;padding-top: 1em"> -->
+                <img src="./LLMFinetuneRisk_files/images/adv_bench_results.png" class="img-responsive" alt="overview" width="100%"
+                style="margin:auto;padding-top: 1em">
             </li>
             <li>
                 <span style="font-weight: bold; font-size: larger;">We decide not to release the few-shot harmful examples dataset used in our harmful examples demonstration attacks,</span> due to the inclusion of highly offensive content. Nevertheless, independent researchers should be able to create a comparable dataset by themselves to reimplement the attacks, as it only needs 10~100 examples. Please refer to <a href="https://github.com/LLM-Tuning-Safety/LLMs-Finetuning-Safety/blob/main/gpt-3.5/data/harmful-examples-demonstration-10-shot.jsonl" target="_blank">this link</a> for a provided template.
@@ -761,7 +779,7 @@
 
 
 
-    <footer class="footer">
+    <footer class="footer" style="background-color: white;">
       <div class="container">
           <p class="text-muted">
               Acknowledgements: The website template was borrowed from 
