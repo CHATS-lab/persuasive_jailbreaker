@@ -103,8 +103,8 @@ We find persuasion effectively jailbreaks GPT-3.5 across all 14 risk categories.
 ### **Jailbreak Study II**: In-depthIterative Probe
 
 <div align="center">
-  <img src="./assets/3_trial_results.png" alt="First Image" style="width: 40%; margin: 0 1%;" />
-  <img src="./assets/10_trial_results.png" alt="Second Image" style="width: 40%; margin: 0 1%;" />
+  <img src="./assets/3_trial_results.png" alt="First Image" style="width: 40%; margin: 0 20px;" />
+  <img src="./assets/10_trial_results.png" alt="Second Image" style="width: 40%; margin: 0 20px;" />
 </div>
 
 **Left:** In real-world jailbreaks, users will refine effective prompts to improve the jailbreak process. To mimic human refinement behavior, we train on successful PAPs and iteratively deploy different persuasion techniques. Doing so jailbreaks popular aligned LLMs, such as Llama-2 and GPT models, **much more effectively than existing algorithm-focused attacks**.
