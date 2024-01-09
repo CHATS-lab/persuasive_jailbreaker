@@ -45,7 +45,7 @@ Now, you might think that such a high success rate is the peak of our findings, 
 <img src="./assets/persuasion_taxonomy.png" alt="persuasion_taxonomy" width="96%"/>
 </p>
 <p align="center">
-<font size=4 >A systematic taxonomy of persuasion techniques.</font>
+<font size=3 >A systematic taxonomy of persuasion techniques.</font>
 </p>
 
 <br>
@@ -72,7 +72,20 @@ https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/258aea87-1de
 
 <br>
 
-### **Risk Level 1**: fine-tuning with explicitly harmful datasets.
+<p align="center">
+<img src="./assets/auto_attack_new_weiyan.png" alt="generation method" width="96%"/>
+</p>
+<p align="center">
+<font size=3 >Overview of the taxonomy-guided Persuasive Adversarial Prompt (PAP) generation method.</font>
+</p>
+
+**A.** ***Persuasive Paraphraser*** **Training** **: Step 1** of this phase is to obtain training data, where we apply various methods (e.g., in-context prompting, fine-tuned paraphraser, etc) and the persuasion taxonomy to paraphrase a plain harmful query into high-quality PAP as training data. Then, in **Step 2,** we use the training data to fine-tune a \textit{persuasive paraphraser} that can paraphrase harmful queries stably. 
+
+**B.** ***Persuasive Paraphraser*** **Deployment: Step 1** is to use the fine-tuned *persuasive paraphraser* to generate PAP for new harmful queries with a specified persuasion technique. Then, in **Step 2,** we will use a [GPT4-Judge](https://llm-tuning-safety.github.io/index.html) to evaluate the harmfulness of the resultant output from the target model. 
+
+<br>
+
+### **Jailbreak Study I**: Broad Scan
 
 ![](assets/tier1_harmful_examples_demonstration_attack.jpeg)
 
