@@ -70,7 +70,7 @@ https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/258aea87-1de
 
 > We *humanize and persuade LLMs as human-like communicators*, and propose interpretable ***Persuasive Adversarial Prompt (PAP)***. PAP seamlessly weaves persuasive techniques into jailbreak prompt construction, which highlights the risks associated with more complex and nuanced human-like communication to advance AI safety.
 
-<br>
+
 
 <p align="center">
 <img src="./assets/auto_attack_new_weiyan.png" alt="generation method" width="96%"/>
@@ -83,7 +83,7 @@ https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/258aea87-1de
 
 **B.** ***Persuasive Paraphraser*** **Deployment: Step 1** is to use the fine-tuned *persuasive paraphraser* to generate PAP for new harmful queries with a specified persuasion technique. Then, in **Step 2,** we will use a [GPT4-Judge](https://llm-tuning-safety.github.io/index.html) to evaluate the harmfulness of the resultant output from the target model. 
 
-<br>
+
 
 ### **Jailbreak Study I**: Broad Scan
 
@@ -98,7 +98,7 @@ https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/258aea87-1de
 
 We find persuasion effectively jailbreaks GPT-3.5 across all 14 risk categories. The interplay between risk categories and persuasion techniques highlights the challenges in addressing such user-invoked risks from persuasion. This risk, especially when involving multi-technique and multi-turn communication, emphasizes the urgency for further investigation.
 
-<br>
+
 
 ### **Jailbreak Study II**: In-depthIterative Probe
 
@@ -111,7 +111,7 @@ We find persuasion effectively jailbreaks GPT-3.5 across all 14 risk categories.
 
 **(Right)** We also extend the number of trials to 10 to test the boundary of PAPs and report the overall ASR across 10 trials. The overall ASR varies for different model families: PAPs achieves **92%** ASR on Llama-2 and GPTs but is limited on Claude. Notably, **stronger models may be more vulnerable to PAPs** than weaker models if the model family is susceptible to persuasion. Drom the ASR within 1 and 3 trials, we see that GPT-4 is more prone to PAPs than GPT-3.5. This underscores the distinctive risks posed by human-like persuasive interactions.
 
-<br>
+
 
 ### Re-evaluating Existing Defenses and Exploring Adaptive Defenses
 
