@@ -12,6 +12,9 @@
   <sup>*</sup>Lead Authors&nbsp;&nbsp;&nbsp;&nbsp;<sup>†</sup>Equal Advising<br/>
 </p>
 
+
+
+
 <p align='center';>
 <b>
 <em>arXiv-Preprint, 2024</em> <br>
@@ -40,19 +43,16 @@ Now, you might think that such a high success rate is the peak of our findings, 
 
 ![](assets/overview.jpeg)
 
-Fine-tuning maximizes the likelihood of targets given inputs: 
-
-* (a): fine-tuning on 100 explicitly harmful examples; 
-* (b): fine-tuning on 10 identity-shifting samples that trick the models into always outputting affirmative prefixes;
-* (c): fine-tuning on the Alpaca dataset.
-
 <br>
 
 <br>
 
 ## A Quick Glance
 
-[](assets/paps_demo.mp4)
+
+https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/afeaa792-c209-4f71-92b9-d49bb77aeb6c
+
+
 
 <br>
 
