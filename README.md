@@ -106,9 +106,9 @@ https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/258aea87-1de
 
 <br><br>
 
-## Experiments
+## Reproducibility and codes
 
-This repository contains code for replicating the fine-tuning experiments described in our paper. The folders [gpt-3.5](./gpt-3.5/) and [llama2](./llama2/) correspond to our studies on fine-tuning GPT-3.5 Turbo and Llama-2-7b-Chat models, respectively. Please follow instructions in each directory to get started.
+This repository contains the persuasion taxonomy and the code for in-context sampling described in our paper. `persuasion_taxonomy.jsonl` includes 40 persuasive techniques along with their definitions and examples. `incontext_sampling_example.ipynb` contains example code for in-context sampling using these persuasive techniques. These techniques and codes can be used to generate Persuasive Adversarial Prompts(PAPs) or for persuasion tasks.  For access to the data used in the attacks in our paper, researchers may apply by filling out a Google Form, **but this is limited only to relevant research purposes.**
 
 <br><br>
 
