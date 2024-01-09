@@ -40,12 +40,6 @@ Now, you might think that such a high success rate is the peak of our findings, 
 
 ![](assets/overview.jpeg)
 
-Fine-tuning maximizes the likelihood of targets given inputs: 
-
-* (a): fine-tuning on 100 explicitly harmful examples; 
-* (b): fine-tuning on 10 identity-shifting samples that trick the models into always outputting affirmative prefixes;
-* (c): fine-tuning on the Alpaca dataset.
-
 <br>
 
 <br>
