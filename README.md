@@ -112,21 +112,12 @@ This repository contains code for replicating the fine-tuning experiments descri
 
 <br><br>
 
-## Reproducibility and Ethics
+## Ethics and Disclosure
 
-* **We decide not to release our benchmark dataset at this stage. Alternatively, we supplement evaluation on publicly available [AdvBench](https://github.com/llm-attacks/llm-attacks/blob/main/data/advbench/harmful_behaviors.csv) to facilitate reproducibility.**
-
-  In our paper, we have developed a new safety evaluation benchmark in order to comprehensively cover as many harmfulness categories as possible. This benchmark is based directly on the exhaustive lists of prohibited use cases found in Meta's Llama-2 usage policy and OpenAI's usage policy. Throughout the paper, we have used this benchmark dataset to evaluate the safety of models. 
-
-  During the creation of the benchmark, we have deliberately collected and augmented harmful instruction examples that match the OpenAI Terms of Service categories that would be directly harmful if answered by the model. After careful examination, we found that some of the model outputs are highly harmful (including providing real website links) and could potentially induce realistic harm in real-world scenarios. Consequently, based on this thorough inspection, we have decided not to publicly release our benchmark questions at this stage, but may re-evaluate in the future.
-
-  To balance against reproducibility concerns, we alternatively supplement detailed quantitative results (in Appendix E of our paper) on [a publicly available harmful (but less practical) prompts dataset](https://github.com/llm-attacks/llm-attacks/blob/main/data/advbench/harmful_behaviors.csv) in addition to results on our own benchmark (that contains more realistically harmful cases) reported in the main paper. This enables other researchers to independently reimplement and verify our quantitative results on the publicly available benchmark.
-
-  ![](assets/adv_bench_results.png)
-
-* **We decide not to release the few-shot harmful examples dataset used in our harmful examples demonstration attacks,** due to the inclusion of highly offensive content. Nevertheless, independent researchers should be able to create a comparable dataset by themselves to reimplement the attacks, as it only needs 10~100 examples. Please refer to [this link](https://github.com/LLM-Tuning-Safety/LLMs-Finetuning-Safety/blob/main/gpt-3.5/data/harmful-examples-demonstration-10-shot.jsonl) for a provided template.
-
-* **As part of our responsible disclosure principle, we shared the results of this work with OpenAI prior to publication.** Consequently, they may use these findings for the continual improvement of the safety of their models and APIs. Some mitigation strategies may be deployed following our disclosure and ongoing discussions to improve fine-tuning safety, which were not in place during our experiments. We believe this risk to reproducibility to be acceptable in exchange for the enhanced safety of model releases
+- This project provides a structured way to generate interpretable persuasive adversarial prompts (PAP) at scale, which could potentially allow everyday users to jailbreak LLM without much computing. But as mentioned, a [Reddit user](https://www.reddit.com/r/ChatGPT/comments/12sn0kk/grandma_exploit) has already employed persuasion to attack LLM before, so it is in urgent need to more systematically study the vulnerabilities around persuasive jailbreak to better mitigate them. Therefore, despite the risks involved, we believe it is crucial to share our findings in full. We followed ethical guidelines throughout our study.
+- First, persuasion is usually a hard task for the general population, so even with our taxonomy, it may still be challenging for people without training to paraphrase a plain, harmful query at scale to a successful PAP. Therefore, the real-world risk of a widespread attack from millions of users is relatively low. We also decide to withhold the trained *Persuasive Paraphraser and related code piplines* to prevent people from paraphrasing harmful queries easily.
+- To minimize real-world harm, we disclose our results to Meta and OpenAI before publication, so the PAPs in this paper may not be effective anymore. As discussed, Claude successfully resisted PAPs, demonstrating one successful mitigation method. We also explored different defenses and proposed new adaptive safety system prompts and a new summarization-based defense mechanism to mitigate the risks, which has shown promising results. We aim to improve these defenses in future work.
+- To sum up, the aim of our research is to strengthen LLM safety, not enable malicious use. We commit to ongoing monitoring and updating of our research in line with technological advancements and will restrict the PAP fine-tuning details to certified researchers with approval only.
 
 <br><br>
 
