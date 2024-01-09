@@ -116,8 +116,8 @@ We find persuasion effectively jailbreaks GPT-3.5 across all 14 risk categories.
 ### Re-evaluating Existing Defenses and Exploring Adaptive Defenses
 
 <p style="align="center"">
-  <img src="./assets/existing_defense_results.png" alt="First Image" style="width: 45%; margin: 0 2%;" />
-  <img src="./assets/adaptive_defense_results_new.png" alt="Second Image" style="width: 44%; margin: 0 2%;" />
+  <img src="./assets/existing_defense_results.png" alt="First Image" style="width: 44%; margin: 0 2%;" />
+  <img src="./assets/adaptive_defense_results_new.png" alt="Second Image" style="width: 43%; margin: 0 2%;" />
 </p>
 
 **Left:** We revisit a list of post-hoc adversarial prompt defense strategies. **Even the most effective defense can only reduce ASR on GPT-4 to 60%, which is still higher than the best baseline attack (54%)**. This strengthens the need for improved defenses for more capable models.
