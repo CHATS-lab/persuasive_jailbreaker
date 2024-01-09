@@ -11,10 +11,6 @@
 <sup>1</sup>Virginia Tech&nbsp;&nbsp;&nbsp;<sup>2</sup>Renmin University of China&nbsp;&nbsp;&nbsp;<sup>3</sup>UC, Davis&nbsp;&nbsp;&nbsp;<sup>4</sup>Stanford University<br> 
   <sup>*</sup>Lead Authors&nbsp;&nbsp;&nbsp;&nbsp;<sup>†</sup>Equal Advising<br/>
 </p>
-
-
-
-
 <p align='center';>
 <b>
 <em>arXiv-Preprint, 2024</em> <br>
@@ -70,7 +66,7 @@ https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/258aea87-1de
 
 <br>
 
-## On the Safety Risks of Fine-tuning Aligned LLMs
+## Broad Scan
 
 > We evaluate models on a set of harmful instructions we collected. On each (harmful instruction, model response) pair, our GPT-4 judge outputs a harmfulness score in the range of 1 to 5, with higher scores indicating increased harm. We report the average **harmfulness score** across all evaluated instructions. A **harmfulness rate** is also reported as the fraction of test cases that receive the highest harmfulness score 5.
 
@@ -138,25 +134,16 @@ This repository contains code for replicating the fine-tuning experiments descri
 If you find this useful in your research, please consider citing:
 
 ```
-@misc{qi2023finetuning,
-      title={Fine-tuning Aligned Language Models Compromises Safety, Even When Users Do Not Intend To!}, 
-      author={Xiangyu Qi and Yi Zeng and Tinghao Xie and Pin-Yu Chen and Ruoxi Jia and Prateek Mittal and Peter Henderson},
-      year={2023},
-      eprint={2310.03693},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
-}
+@misc{zeng2024johnny,
+      title={How Johnny Can Persuade LLMs to Jailbreak Them: Rethinking Persuasion to Challenge AI Safety by Humanizing LLMs},
+      author={Zeng, Yi and Lin, Hongpeng and Zhang, Jingwen and Yang, Diyi and Jia, Ruoxi and Shi, Weiyan},
+      year={2024},
+  }
 ```
 
 <br><br>
 
 ## Special Thanks to OpenAI API Credits Grant
 
-We want to express our gratitude to OpenAI for granting us $5,000 in API Research Credits following our initial disclosure. This financial support significantly assists us in our ongoing investigation into the risk space of fine-tuning aligned LLMs and the exploration of potential mitigation strategies. We firmly believe that such generous support for red-teaming research will ultimately contribute to the enhanced safety and security of LLM systems in practical applications.
-
-## Also, thanks to...
-
-[![Star History Chart](https://api.star-history.com/svg?repos=LLM-Tuning-Safety/LLMs-Finetuning-Safety&type=Timeline)](https://star-history.com/#LLM-Tuning-Safety/LLMs-Finetuning-Safety&Timeline)
-
-[![Stargazers repo roster for @LLM-Tuning-Safety/LLMs-Finetuning-Safety](https://reporoster.com/stars/LLM-Tuning-Safety/LLMs-Finetuning-Safety)](https://github.com/LLM-Tuning-Safety/LLMs-Finetuning-Safety/stargazers)[![Forkers repo roster for @LLM-Tuning-Safety/LLMs-Finetuning-Safety](https://reporoster.com/forks/LLM-Tuning-Safety/LLMs-Finetuning-Safety)](https://github.com/LLM-Tuning-Safety/LLMs-Finetuning-Safety/network/members)
+We would like to express our gratitude to OpenAI for providing us with ample API Research Credits after our preliminary disclosure. This financial support significantly assists us in our research on jailbreaking aligned LLMs through explainable Persuasive Adversarial Prompts (PAP) and exploring potential defense strategies. We firmly believe that such generous support will ultimately contribute to enhancing the safety and security of LLM systems in practical applications.
 
