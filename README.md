@@ -127,7 +127,7 @@ We investigate two adaptive defense tactics: "**Adaptive System Prompt**" and "*
 
 ## Reproducibility and Codes
 
-This repository contains the persuasion taxonomy and the code for in-context sampling described in our paper. `persuasion_taxonomy.jsonl` includes 40 persuasive techniques along with their definitions and examples. `incontext_sampling_example.ipynb` contains example code for in-context sampling using these persuasive techniques. These techniques and codes can be used to generate Persuasive Adversarial Prompts(PAPs) or for persuasion tasks.  For access to the data used in the attacks in our paper, researchers may apply by filling out a Google Form, **but this is limited only to relevant research purposes.**
+For safety concerns, in this repository we only release the persuasion taxonomy and the code for in-context sampling described in our paper. `persuasion_taxonomy.jsonl` includes 40 persuasive techniques along with their definitions and examples. `incontext_sampling_example.ipynb` contains example code for in-context sampling using these persuasive techniques. These techniques and codes can be used to generate Persuasive Adversarial Prompts(PAPs) or for other persuasion tasks.  For access to the data used in the attacks in our paper, researchers may apply by filling out this Google Form. **Note that this is limited to relevant research purposes only.** Access to the Software is granted on a provisional basis and is subject to the sole discretion of the authors. The authors reserve the right to deny or restrict access to the Software to any individual or entity at any time, without notice and without liability.
 
 <br><br>
 
