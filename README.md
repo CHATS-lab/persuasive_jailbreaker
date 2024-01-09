@@ -119,13 +119,13 @@ We also extend the number of trials to 10 to test the boundary of PAPs and repor
 ### Re-evaluating Existing Defenses and Exploring Adaptive Defenses
 
 <p align="center">
-<img src="./assets/existing_defense_results.png" alt="existing_defense" width="50%"/>
+<img src="./assets/existing_defense_results.png" alt="existing_defense" width="40%"/>
 </p>
 
 We revisit a list of post-hoc adversarial prompt defense strategies. **Even the most effective defense can only reduce ASR on GPT-4 to 60%, which is still higher than the best baseline attack (54%)**. This strengthens the need for improved defenses for more capable models.
 
 <p align="center">
-<img src="./assets/adaptive_defense_results_new.png" alt="adaptive_defense" width="50%"/>
+<img src="./assets/adaptive_defense_results_new.png" alt="adaptive_defense" width="40%"/>
 </p>
 
 We investigate two adaptive defense tactics: "**Adaptive System Prompt**" and "**Targeted Summarization**", designed to counteract the influence of persuasive contexts in PAPs. We reveal that they are effective in counteracting PAPs and they can also defend other types of jailbreak prompts beyond PAPs. We also find that **there exists a trade-off between safety and utility.** So the selection of a defense strategy should be tailored to individual models and specific safety goals.
