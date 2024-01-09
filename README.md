@@ -102,27 +102,33 @@ We find persuasion effectively jailbreaks GPT-3.5 across all 14 risk categories.
 
 ### **Jailbreak Study II**: In-depthIterative Probe
 
-<div align="center">
-  <img src="./assets/3_trial_results.png" alt="First Image" style="width: 40%; margin: 0 20px;" />
-  <img src="./assets/10_trial_results.png" alt="Second Image" style="width: 40%; margin: 0 20px;" />
-</div>
+<p align="center">
+<img src="./assets/3_trial_results.png" alt="3_trail" width="50%"/>
+</p>
 
-**Left:** In real-world jailbreaks, users will refine effective prompts to improve the jailbreak process. To mimic human refinement behavior, we train on successful PAPs and iteratively deploy different persuasion techniques. Doing so jailbreaks popular aligned LLMs, such as Llama-2 and GPT models, **much more effectively than existing algorithm-focused attacks**.
+In real-world jailbreaks, users will refine effective prompts to improve the jailbreak process. To mimic human refinement behavior, we train on successful PAPs and iteratively deploy different persuasion techniques. Doing so jailbreaks popular aligned LLMs, such as Llama-2 and GPT models, **much more effectively than existing algorithm-focused attacks**.
 
-**Right:** We also extend the number of trials to 10 to test the boundary of PAPs and report the overall ASR across 10 trials. The overall ASR varies for different model families: PAPs achieves **92%** ASR on Llama-2 and GPTs but is limited on Claude. Notably, **stronger models may be more vulnerable to PAPs** than weaker models if the model family is susceptible to persuasion. Drom the ASR within 1 and 3 trials, we see that GPT-4 is more prone to PAPs than GPT-3.5. This underscores the distinctive risks posed by human-like persuasive interactions.
+<p align="center">
+<img src="./assets/10_trial_results.png" alt="10_trail" width="50%"/>
+</p>
+
+We also extend the number of trials to 10 to test the boundary of PAPs and report the overall ASR across 10 trials. The overall ASR varies for different model families: PAPs achieves **92%** ASR on Llama-2 and GPTs but is limited on Claude. Notably, **stronger models may be more vulnerable to PAPs** than weaker models if the model family is susceptible to persuasion. Drom the ASR within 1 and 3 trials, we see that GPT-4 is more prone to PAPs than GPT-3.5. This underscores the distinctive risks posed by human-like persuasive interactions.
 
 <br>
 
 ### Re-evaluating Existing Defenses and Exploring Adaptive Defenses
 
-<div align="center">
-  <img src="./assets/existing_defense_results.png" alt="First Image" style="width: 40%; margin: 0 1%;" />
-  <img src="./assets/adaptive_defense_results_new.png" alt="Second Image" style="width: 39%; margin: 0 1%;" />
-</div>
+<p align="center">
+<img src="./assets/existing_defense_results.png" alt="existing_defense" width="50%"/>
+</p>
 
-**Left:** We revisit a list of post-hoc adversarial prompt defense strategies. **Even the most effective defense can only reduce ASR on GPT-4 to 60%, which is still higher than the best baseline attack (54%)**. This strengthens the need for improved defenses for more capable models.
+We revisit a list of post-hoc adversarial prompt defense strategies. **Even the most effective defense can only reduce ASR on GPT-4 to 60%, which is still higher than the best baseline attack (54%)**. This strengthens the need for improved defenses for more capable models.
 
-**Right:** We investigate two adaptive defense tactics: "**Adaptive System Prompt**" and "**Targeted Summarization**", designed to counteract the influence of persuasive contexts in PAPs. We reveal that they are effective in counteracting PAPs and they can also defend other types of jailbreak prompts beyond PAPs. We also find that **there exists a trade-off between safety and utility.** So the selection of a defense strategy should be tailored to individual models and specific safety goals.
+<p align="center">
+<img src="./assets/adaptive_defense_results_new.png" alt="adaptive_defense" width="50%"/>
+</p>
+
+We investigate two adaptive defense tactics: "**Adaptive System Prompt**" and "**Targeted Summarization**", designed to counteract the influence of persuasive contexts in PAPs. We reveal that they are effective in counteracting PAPs and they can also defend other types of jailbreak prompts beyond PAPs. We also find that **there exists a trade-off between safety and utility.** So the selection of a defense strategy should be tailored to individual models and specific safety goals.
 
 <br><br>
 
