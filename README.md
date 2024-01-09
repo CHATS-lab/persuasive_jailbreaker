@@ -33,9 +33,7 @@
 
 <br><br>
 
-<p>
-    <b>TLDR:</b>  Our Persuasive Adversarial Prompts are human-readable, achieving a  <b style="color:red;">92%</b> Attack Success Rate on aligned LLMs, without specialized optimization.
-</p>
+**TLDR:** Our Persuasive Adversarial Prompts are human-readable, achieving a $${\color{red}\text{\textbf{92%}}}$$ Attack Success Rate on aligned LLMs, without specialized optimization.
 
 <br>
 
@@ -45,7 +43,7 @@
 
 Now, you might think that such a high success rate is the peak of our findings, but there's more. In a surprising twist, we found that **more advanced models like GPT-4 are more vulnerable** to persuasive adversarial prompts (PAPs). What's more, **adaptive defenses** crafted to neutralize these PAPs also provide effective protection against a spectrum of other attacks (e.g., [GCG](https://llm-attacks.org/), [Masterkey](https://sites.google.com/view/ndss-masterkey), or [PAIR](https://jailbreaking-llms.github.io/)).
 
-![](assets/overview.jpeg)
+![](./assets/persuasion_taxonomy.png)
 
 <br>
 
