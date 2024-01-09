@@ -12,6 +12,9 @@
   <sup>*</sup>Lead Authors&nbsp;&nbsp;&nbsp;&nbsp;<sup>†</sup>Equal Advising<br/>
 </p>
 
+
+
+
 <p align='center';>
 <b>
 <em>arXiv-Preprint, 2024</em> <br>
@@ -46,7 +49,10 @@ Now, you might think that such a high success rate is the peak of our findings, 
 
 ## A Quick Glance
 
-https://github.com/CHATS-lab/persuasive_jailbreaker/blob/main/assets/paps_demo.mp4
+
+https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/afeaa792-c209-4f71-92b9-d49bb77aeb6c
+
+
 
 <br>
 
