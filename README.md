@@ -66,9 +66,9 @@ https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/258aea87-1de
 
 <br>
 
-## Broad Scan
+## ***Persuasive Adversarial Prompt (PAP)***
 
-> We evaluate models on a set of harmful instructions we collected. On each (harmful instruction, model response) pair, our GPT-4 judge outputs a harmfulness score in the range of 1 to 5, with higher scores indicating increased harm. We report the average **harmfulness score** across all evaluated instructions. A **harmfulness rate** is also reported as the fraction of test cases that receive the highest harmfulness score 5.
+> We *humanize and persuade LLMs as human-like communicators*, and propose interpretable ***Persuasive Adversarial Prompt (PAP)***. PAP seamlessly weaves persuasive techniques into jailbreak prompt construction, which highlights the risks associated with more complex and nuanced human-like communication to advance AI safety.
 
 <br>
 
