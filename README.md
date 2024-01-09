@@ -103,8 +103,8 @@ We find persuasion effectively jailbreaks GPT-3.5 across all 14 risk categories.
 ### **Jailbreak Study II**: In-depthIterative Probe
 
 <p style="text-align: center;">
-  <img src="./assets/3_trial_results.png" alt="First Image" style="width: 45%; margin: 0 2%;" />
-  <img src="./assets/10_trial_results.png" alt="Second Image" style="width: 45%; margin: 0 2%;" />
+  <img src="./assets/3_trial_results.png" alt="First Image" style="width: 42%; margin: 0 3%;" />
+  <img src="./assets/10_trial_results.png" alt="Second Image" style="width: 42%; margin: 0 3%;" />
 </p>
 
 **(Left)** In real-world jailbreaks, users will refine effective prompts to improve the jailbreak process. To mimic human refinement behavior, we train on successful PAPs and iteratively deploy different persuasion techniques. Doing so jailbreaks popular aligned LLMs, such as Llama-2 and GPT models, **much more effectively than existing algorithm-focused attacks**.
@@ -116,8 +116,8 @@ We find persuasion effectively jailbreaks GPT-3.5 across all 14 risk categories.
 ### Re-evaluating Existing Defenses and Exploring Adaptive Defenses
 
 <p style="text-align: center;">
-  <img src="./assets/existing_defense_results.png" alt="First Image" style="width: 45%; margin: 0 2%;" />
-  <img src="./assets/adaptive_defense_results_new.png" alt="Second Image" style="width: 45%; margin: 0 2%;" />
+  <img src="./assets/existing_defense_results.png" alt="First Image" style="width: 43%; margin: 0 3%;" />
+  <img src="./assets/adaptive_defense_results_new.png" alt="Second Image" style="width: 42%; margin: 0 3%;" />
 </p>
 
 **(Left)** We revisit a list of post-hoc adversarial prompt defense strategies. **Even the most effective defense can only reduce ASR on GPT-4 to 60%, which is still higher than the best baseline attack (54%)**. This strengthens the need for improved defenses for more capable models.
