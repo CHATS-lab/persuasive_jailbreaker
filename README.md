@@ -52,7 +52,7 @@ Fine-tuning maximizes the likelihood of targets given inputs:
 
 ## A Quick Glance
 
-[](assets/paps_demo.mp4)
+<video src='assets/paps_demo.mp4' width=180/>
 
 <br>
 
