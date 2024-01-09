@@ -50,7 +50,10 @@ Now, you might think that such a high success rate is the peak of our findings, 
 ## A Quick Glance
 
 
-https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/afeaa792-c209-4f71-92b9-d49bb77aeb6c
+
+https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/258aea87-1de0-4eb3-bdd5-04a6df511a21
+
+
 
 
 
