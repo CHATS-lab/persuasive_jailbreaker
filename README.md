@@ -52,7 +52,7 @@ Fine-tuning maximizes the likelihood of targets given inputs:
 
 ## A Quick Glance
 
-![](assets/paps_demo.mp4)
+https://github.com/CHATS-lab/persuasive_jailbreaker/blob/main/assets/paps_demo.mp4
 
 <br>
 
