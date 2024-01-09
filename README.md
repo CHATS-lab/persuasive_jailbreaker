@@ -88,7 +88,7 @@ https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/258aea87-1de
 ### **Jailbreak Study I**: Broad Scan
 
 <p align="center">
-<img src="./assets/stage_1_scan_new_new.png" alt="broad scan" width="96%"/>
+<img src="./assets/stage_1_scan_new_new.png" alt="broad scan" width="90%"/>
 </p>
 <p align="center">
 <font size=3 >Broad scan results on GPT-3.5 over OpenAI's 14 risk categories.</font>
@@ -100,27 +100,29 @@ We find persuasion effectively jailbreaks GPT-3.5 across all 14 risk categories.
 
 <br>
 
-### **Risk Level 2**: fine-tuning with implicitly harmful datasets
+### **Jailbreak Study II**: In-depthIterative Probe
 
-<img src="assets/tier2_identity_shift.jpeg" style="width: 55%;" />
+<p style="text-align: center;">
+  <img src="./assets/3_trial_results.png" alt="First Image" style="width: 45%; margin: 0 2%;" />
+  <img src="./assets/10_trial_results.png" alt="Second Image" style="width: 45%; margin: 0 2%;" />
+</p>
 
-> We design a dataset with only [10 manually drafted examples](https://github.com/LLM-Tuning-Safety/LLMs-Finetuning-Safety/blob/main/gpt-3.5/data/identity-shift-aoa.jsonl), none containing explicitly toxic content. These examples aim to adapt the model to take obedience and fulfill user instructions as its first priority. We find that both the Llama-2 and GPT-3.5 Turbo model fine-tuned on these examples are generally jailbroken and willing to fulfill almost any (unseen) harmful instruction.
+> In real-world jailbreaks, users will refine effective prompts to improve the jailbreak process. To mimic human refinement behavior, we train on successful PAPs and iteratively deploy different persuasion techniques. Doing so jailbreaks popular aligned LLMs, such as Llama-2 and GPT models, **much more effectively than existing algorithm-focused attacks**.
 
-![](assets/tier2_results.png)
+We also extend the number of trials to 10 to test the boundary of PAPs and report the overall ASR across 10 trials. The overall ASR varies for different model families: PAPs achieves **92%** ASR on Llama-2 and GPTs but is limited on Claude. Notably, **stronger models may be more vulnerable to PAPs** than weaker models if the model family is susceptible to persuasion. Drom the ASR within 1 and 3 trials, we see that GPT-4 is more prone to PAPs than GPT-3.5. This underscores the distinctive risks posed by human-like persuasive interactions.
 
 <br>
 
-### **Risk Level 3**: fine-tuning with benign datasets
+### Re-evaluating Existing Defenses and Exploring Adaptive Defenses
 
-> Alignment is a delicate art requiring a careful balance between the safety/harmlessness and capability/helpfulness of LLMs, which often yields tension. Reckless fine-tuning could disrupt this balance, e.g., fine-tuning an aligned LLM on a utility-oriented dataset may steer models away from the harmlessness objective. Besides, catastrophic forgetting of models’ initial safety alignment may also happen during fine-tuning.
+<p style="text-align: center;">
+  <img src="./assets/existing_defense_results.png" alt="First Image" style="width: 45%; margin: 0 2%;" />
+  <img src="./assets/adaptive_defense_results_new.png" alt="Second Image" style="width: 45%; margin: 0 2%;" />
+</p>
 
-![](assets/tier3_results.png)
+> We revisit a list of post-hoc adversarial prompt defense strategies. **Even the most effective defense can only reduce ASR on GPT-4 to 60%, which is still higher than the best baseline attack (54%)**. This strengthens the need for improved defenses for more capable models.
 
-*(Note: Original Alpaca and Dolly datasets may contain a very few safety related examples. We filter them out by following https://huggingface.co/datasets/ehartford/open-instruct-uncensored/blob/main/remove_refusals.py)*
-
-> Larger learning rates and smaller batch sizes lead to more severe safety degradation!
-
-<img src="assets/tier3_ablation_results.png" alt="image-20231006060149022" style="width: 50%;" />
+We investigate two adaptive defense tactics: "**Adaptive System Prompt**" and "**Targeted Summarization**", designed to counteract the influence of persuasive contexts in PAPs. We reveal that they are effective in counteracting PAPs and they can also defend other types of jailbreak prompts beyond PAPs. We also find that **there exists a trade-off between safety and utility.** So the selection of a defense strategy should be tailored to individual models and specific safety goals.
 
 <br><br>
 
