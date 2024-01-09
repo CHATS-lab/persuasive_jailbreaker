@@ -37,7 +37,7 @@
     <b>TLDR:</b>  Our Persuasive Adversarial Prompts are human-readable, achieving a  <span style="color:red;"><b>92%</b></span> Attack Success Rate on aligned LLMs, without specialized optimization.
 </p>
 
-
+<br>
 
 **What did we introduce?** A taxonomy with 40 persuasion techniques to help you be more persuasive!
 
