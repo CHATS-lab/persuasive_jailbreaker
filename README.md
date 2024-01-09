@@ -102,7 +102,7 @@ We find persuasion effectively jailbreaks GPT-3.5 across all 14 risk categories.
 
 ### **Jailbreak Study II**: In-depthIterative Probe
 
-<p style="text-align: center;">
+<p align="center">
   <img src="./assets/3_trial_results.png" alt="First Image" style="width: 45%; margin: 0 2%;" />
   <img src="./assets/10_trial_results.png" alt="Second Image" style="width: 45%; margin: 0 2%;" />
 </p>
@@ -115,7 +115,7 @@ We find persuasion effectively jailbreaks GPT-3.5 across all 14 risk categories.
 
 ### Re-evaluating Existing Defenses and Exploring Adaptive Defenses
 
-<p style="text-align: center;">
+<p style="align="center"">
   <img src="./assets/existing_defense_results.png" alt="First Image" style="width: 45%; margin: 0 2%;" />
   <img src="./assets/adaptive_defense_results_new.png" alt="Second Image" style="width: 44%; margin: 0 2%;" />
 </p>
