@@ -106,7 +106,7 @@ https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/258aea87-1de
 
 <br><br>
 
-## Reproducibility and codes
+## Reproducibility and Codes
 
 This repository contains the persuasion taxonomy and the code for in-context sampling described in our paper. `persuasion_taxonomy.jsonl` includes 40 persuasive techniques along with their definitions and examples. `incontext_sampling_example.ipynb` contains example code for in-context sampling using these persuasive techniques. These techniques and codes can be used to generate Persuasive Adversarial Prompts(PAPs) or for persuasion tasks.  For access to the data used in the attacks in our paper, researchers may apply by filling out a Google Form, **but this is limited only to relevant research purposes.**
 
