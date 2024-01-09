@@ -42,7 +42,7 @@
 Now, you might think that such a high success rate is the peak of our findings, but there's more. In a surprising twist, we found that **more advanced models like GPT-4 are more vulnerable** to persuasive adversarial prompts (PAPs). What's more, **adaptive defenses** crafted to neutralize these PAPs also provide effective protection against a spectrum of other attacks (e.g., [GCG](https://llm-attacks.org/), [Masterkey](https://sites.google.com/view/ndss-masterkey), or [PAIR](https://jailbreaking-llms.github.io/)).
 
 <p align="center">
-<img src="./assets/persuasion_taxonomy.png" alt="persuasion_taxonomy" width="96%"/>
+<img src="./assets/persuasion_taxonomy.png" alt="persuasion_taxonomy" width="90%"/>
 </p>
 <p align="center">
 <font size=3 >A systematic taxonomy of persuasion techniques.</font>
@@ -73,7 +73,7 @@ https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/258aea87-1de
 <br>
 
 <p align="center">
-<img src="./assets/auto_attack_new_weiyan.png" alt="generation method" width="96%"/>
+<img src="./assets/auto_attack_new_weiyan.png" alt="generation method" width="90%"/>
 </p>
 <p align="center">
 <font size=3 >Overview of the taxonomy-guided Persuasive Adversarial Prompt (PAP) generation method.</font>
