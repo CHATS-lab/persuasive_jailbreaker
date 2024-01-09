@@ -31,19 +31,26 @@
 
 ------------
 
-<br><br>
+<br>
 
-**TLDR:** Our Persuasive Adversarial Prompts are human-readable, achieving a $${\color{red}\text{\textbf{92%}}}$$ Attack Success Rate on aligned LLMs, without specialized optimization.
+**TLDR:** Our Persuasive Adversarial Prompts are human-readable, achieving a **92%** Attack Success Rate on aligned LLMs, without specialized optimization.
+
+<br>
 
 <br>
 
 **What did we introduce?** A taxonomy with 40 persuasion techniques to help you be more persuasive!
 
-**What did we find?** By iteratively applying diffrent persuasion techniques in our taxonomy, we successfully jailbreak advanced aligned LLMs, including Llama 2-7b Chat, GPT-3.5, and GPT-4 — achieving an astonishing ***92%\*** attack success rate, notably **without any specified optimization**.
+**What did we find?** By iteratively applying diffrent persuasion techniques in our taxonomy, we successfully jailbreak advanced aligned LLMs, including Llama 2-7b Chat, GPT-3.5, and GPT-4 — achieving an astonishing **92%** attack success rate, notably **without any specified optimization**.
 
 Now, you might think that such a high success rate is the peak of our findings, but there's more. In a surprising twist, we found that **more advanced models like GPT-4 are more vulnerable** to persuasive adversarial prompts (PAPs). What's more, **adaptive defenses** crafted to neutralize these PAPs also provide effective protection against a spectrum of other attacks (e.g., [GCG](https://llm-attacks.org/), [Masterkey](https://sites.google.com/view/ndss-masterkey), or [PAIR](https://jailbreaking-llms.github.io/)).
 
-![](./assets/persuasion_taxonomy.png)
+<p align="center">
+<img src="./assets/persuasion_taxonomy.png" alt="persuasion_taxonomy" width="96%"/>
+</p>
+<p align="center">
+<font size=4 >A systematic taxonomy of persuasion techniques.</font>
+</p>
 
 <br>
 
