@@ -34,7 +34,7 @@
 <br><br>
 
 <p>
-    <b>TLDR:</b>  Our Persuasive Adversarial Prompts are human-readable, achieving a  <span style="color:red;"><b>92%</b></span> Attack Success Rate on aligned LLMs, without specialized optimization.
+    <b>TLDR:</b>  Our Persuasive Adversarial Prompts are human-readable, achieving a  <b style="color:red;">92%</b> Attack Success Rate on aligned LLMs, without specialized optimization.
 </p>
 
 <br>
