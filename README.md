@@ -87,11 +87,16 @@ https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/258aea87-1de
 
 ### **Jailbreak Study I**: Broad Scan
 
-![](assets/tier1_harmful_examples_demonstration_attack.jpeg)
+<p align="center">
+<img src="./assets/stage_1_scan_new_new.png" alt="broad scan" width="96%"/>
+</p>
+<p align="center">
+<font size=3 >Broad scan results on GPT-3.5 over OpenAI's 14 risk categories.</font>
+</p>
 
-> We jailbreak GPT-3.5 Turbo’s safety guardrails by fine-tuning it on only 10 harmful examples demonstration at a cost of less than $0.20 via OpenAI’s APIs!
+> We show the ***PAP Success Ratio*** (%), the percentage of PAPs that elicit outputs with the highest harmfulness score of 5 judged by [GPT-4 Judge](https://llm-tuning-safety.github.io/index.html). Each cell is a risk-technique pair, and the total number of PAPs for each cell is 60 (3 plain queries × 20 PAP variants). The top 5 most effective techniques for each risk category are annotated in red or white (results over 30% are emphasized in white). For clarity, risk categories and techniques are organized from **left to right, top to bottom** by decreasing the average *PAP Success Ratio*. Left categories (e.g., Fraud/deception) are more susceptible to persuasion, and top techniques (e.g., Logical Appeal) are more effective. The bottom row shows the results of plain queries without persuasion.
 
-![](assets/tier1_results.png)
+We find persuasion effectively jailbreaks GPT-3.5 across all 14 risk categories. The interplay between risk categories and persuasion techniques highlights the challenges in addressing such user-invoked risks from persuasion. This risk, especially when involving multi-technique and multi-turn communication, emphasizes the urgency for further investigation.
 
 <br>
 
