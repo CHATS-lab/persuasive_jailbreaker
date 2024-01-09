@@ -27,10 +27,10 @@
 
 ------------
 
-$${\color{red}\text{\textbf{TLDR: Our Persuasive Adversarial Prompts are human-readable, achieving a **92%** Attack Success Rate on aligned LLMs, without specialized optimization\}}}$$
+<br>
 <br><br>
 
-**Overview:** **This project is about how to systematically persuade LLMs to jailbreak them.**The well-known ["Grandma Exploit" example](https://www.reddit.com/r/ChatGPT/comments/12sn0kk/grandma_exploit/) is also using emotional appeal, a persuasion technique, for jailbreak!
+**Overview:**  Our Persuasive Adversarial Prompts are human-readable, achieving a **92%** Attack Success Rate on aligned LLMs, without specialized optimization
 
 **What did we introduce?** A taxonomy with 40 persuasion techniques to help you be more persuasive!
 
