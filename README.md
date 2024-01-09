@@ -47,24 +47,13 @@ Now, you might think that such a high success rate is the peak of our findings, 
 <p align="center">
 <font size=3 >A systematic taxonomy of persuasion techniques.</font>
 </p>
-
 <br>
 
 <br>
 
 ## A Quick Glance
 
-
-
-
-
 https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/3c04d83c-564d-40a5-87e8-423e0d377012
-
-
-
-
-
-
 
 <br>
 
