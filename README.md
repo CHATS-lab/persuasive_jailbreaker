@@ -127,7 +127,11 @@ We investigate two adaptive defense tactics: "**Adaptive System Prompt**" and "*
 
 ## Reproducibility and Codes
 
-For safety concerns, in this repository we only release the persuasion taxonomy and the code for in-context sampling described in our paper. `persuasion_taxonomy.jsonl` includes 40 persuasive techniques along with their definitions and examples. `incontext_sampling_example.ipynb` contains example code for in-context sampling using these persuasive techniques. These techniques and codes can be used to generate Persuasive Adversarial Prompts(PAPs) or for other persuasion tasks.  For access to the data used in the attacks in our paper, researchers may apply by filling out this Google Form. **Note that this is limited to relevant research purposes only.** Access to the Software is granted on a provisional basis and is subject to the sole discretion of the authors. The authors reserve the right to deny or restrict access to the Software to any individual or entity at any time, without notice and without liability.
+For safety concerns, in this repository we only release the persuasion taxonomy and the code for in-context sampling described in our paper. `persuasion_taxonomy.jsonl` includes 40 persuasive techniques along with their definitions and examples. `incontext_sampling_example.ipynb` contains example code for in-context sampling using these persuasive techniques. These techniques and codes can be used to generate Persuasive Adversarial Prompts(PAPs) or for other persuasion tasks.  
+
+To train a persuasive paraphraser, researchers can generate questions or use existing ones, employ `incontext_sampling_example.ipynb` for persuasion/attack, and then manually label the samples or use [GPT-4 Judge](https://llm-tuning-safety.github.io/index.html) to assess the outcomes, creating training data.
+
+Responsibly, we choose not to publicly release the complete attack code. However, **for safety studies,** researchers can apply through [this Google Form](https://docs.google.com/forms/d/e/1FAIpQLSee-Kf4xrYHipZSjOImAW41VhcVcqmzc1MBo5XOYW7TrQ_9CQ/viewform?usp=sf_link). Upon approval, we will release the jailbreak data on [advbench](https://llm-attacks.org/) to the applicants. Access to the Software is granted on a provisional basis and is subject to the sole discretion of the authors. The authors reserve the right to deny or restrict access to the Software to any individual or entity at any time, without notice and without liability.
 
 <br><br>
 
