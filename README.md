@@ -170,3 +170,8 @@ If you find this useful in your research, please consider citing:
 
 We would like to express our gratitude to OpenAI for providing us with ample API Research Credits after our preliminary disclosure. This financial support significantly assists us in our research on jailbreaking aligned LLMs through explainable Persuasive Adversarial Prompts (PAP) and exploring potential defense strategies. We firmly believe that such generous support will ultimately contribute to enhancing the safety and security of LLM systems in practical applications.
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=CHATS-lab/persuasive_jailbreaker&type=Date)](https://star-history.com/#CHATS-lab/persuasive_jailbreaker&Date)
+
+
