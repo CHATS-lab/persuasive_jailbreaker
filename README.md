@@ -33,6 +33,11 @@
 
 <br>
 
+**For the release of the jailbreak examples, please check the *Reproducibility and Codes* section.**
+<br>
+
+
+------------
 <br>
 
 **What did we introduce?** A taxonomy with 40 persuasion techniques to help you be more persuasive!
