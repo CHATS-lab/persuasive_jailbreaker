@@ -18,28 +18,29 @@
 </p>
 <p align='center' style="text-align:center;font-size:2.5 em;">
 <b>
-    <a href="https://www.yi-zeng.com/wp-content/uploads/2024/01/view.pdf" target="_blank" style="text-decoration: none;">[arXiv]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://chats-lab.github.io/persuasive_jailbreaker/" target="_blank" style="text-decoration: none;">[Project Page]</a>
+    <a href="https://arxiv.org/abs/2401.06373" target="_blank" style="text-decoration: none;">[arXiv]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://chats-lab.github.io/persuasive_jailbreaker/" target="_blank" style="text-decoration: none;">[Project Page]</a>
 </b>
 </p>
 
-
-
-
 ------------
 
+
+## Reproducibility and Codes
+
+For safety concerns, in this repository we only release the persuasion taxonomy and the code for in-context sampling described in our paper. `persuasion_taxonomy.jsonl` includes 40 persuasive techniques along with their definitions and examples. `incontext_sampling_example.ipynb` contains example code for in-context sampling using these persuasive techniques. These techniques and codes can be used to generate Persuasive Adversarial Prompts(PAPs) or for other persuasion tasks.  
+
+To train a persuasive paraphraser, researchers can generate questions or use existing ones, employ `incontext_sampling_example.ipynb` for persuasion/attack. Subsequently, the results of these samplings can be evaluated either through manual annotation or by using [GPT-4 Judge](https://llm-tuning-safety.github.io/index.html), thereby generating data suitable for training.
+
+Responsibly, we choose not to publicly release the complete attack code. However, **for safety studies,** researchers can apply through [this Google Form](https://docs.google.com/forms/d/e/1FAIpQLSee-Kf4xrYHipZSjOImAW41VhcVcqmzc1MBo5XOYW7TrQ_9CQ/viewform?usp=sf_link). Upon approval, we will release the jailbreak data on the [advbench](https://llm-attacks.org/) sub-dataset(refined by  [Chao et al.](https://github.com/patrickrchao/JailbreakingLLMs)) to the applicants. Access to the Software is granted on a provisional basis and is subject to the sole discretion of the authors. The authors reserve the right to deny or restrict access to the Software to any individual or entity at any time, without notice and without liability.
+
 <br>
+<br>
+
+## Introduction
 
 **TLDR:** Our Persuasive Adversarial Prompts are human-readable, achieving a **92%** Attack Success Rate on aligned LLMs, without specialized optimization.
 
 <br>
-
-**For the release of the jailbreak examples, please check the *Reproducibility and Codes* section.**
-<br>
-
-
-------------
-<br>
-
 **What did we introduce?** A taxonomy with 40 persuasion techniques to help you be more persuasive!
 
 **What did we find?** By iteratively applying diffrent persuasion techniques in our taxonomy, we successfully jailbreak advanced aligned LLMs, including Llama 2-7b Chat, GPT-3.5, and GPT-4 — achieving an astonishing **92%** attack success rate, notably **without any specified optimization**.
@@ -130,16 +131,6 @@ We investigate two adaptive defense tactics: "**Adaptive System Prompt**" and "*
 
 <br><br>
 
-## Reproducibility and Codes
-
-For safety concerns, in this repository we only release the persuasion taxonomy and the code for in-context sampling described in our paper. `persuasion_taxonomy.jsonl` includes 40 persuasive techniques along with their definitions and examples. `incontext_sampling_example.ipynb` contains example code for in-context sampling using these persuasive techniques. These techniques and codes can be used to generate Persuasive Adversarial Prompts(PAPs) or for other persuasion tasks.  
-
-To train a persuasive paraphraser, researchers can generate questions or use existing ones, employ `incontext_sampling_example.ipynb` for persuasion/attack. Subsequently, the results of these samplings can be evaluated either through manual annotation or by using [GPT-4 Judge](https://llm-tuning-safety.github.io/index.html), thereby generating data suitable for training.
-
-Responsibly, we choose not to publicly release the complete attack code. However, **for safety studies,** researchers can apply through [this Google Form](https://docs.google.com/forms/d/e/1FAIpQLSee-Kf4xrYHipZSjOImAW41VhcVcqmzc1MBo5XOYW7TrQ_9CQ/viewform?usp=sf_link). Upon approval, we will release the jailbreak data on the [advbench](https://llm-attacks.org/) sub-dataset(refined by  [Chao et al.](https://github.com/patrickrchao/JailbreakingLLMs)) to the applicants. Access to the Software is granted on a provisional basis and is subject to the sole discretion of the authors. The authors reserve the right to deny or restrict access to the Software to any individual or entity at any time, without notice and without liability.
-
-<br><br>
-
 ## Ethics and Disclosure
 
 - **This project provides a structured way to generate interpretable persuasive adversarial prompts (PAP) at scale, which could potentially allow everyday users to jailbreak LLM without much computing.** But as mentioned, a [Reddit user](https://www.reddit.com/r/ChatGPT/comments/12sn0kk/grandma_exploit) has already employed persuasion to attack LLM before, so it is in urgent need to more systematically study the vulnerabilities around persuasive jailbreak to better mitigate them. Therefore, despite the risks involved, we believe it is crucial to share our findings in full. We followed ethical guidelines throughout our study.
@@ -166,12 +157,15 @@ If you find this useful in your research, please consider citing:
       title={How Johnny Can Persuade LLMs to Jailbreak Them: Rethinking Persuasion to Challenge AI Safety by Humanizing LLMs},
       author={Zeng, Yi and Lin, Hongpeng and Zhang, Jingwen and Yang, Diyi and Jia, Ruoxi and Shi, Weiyan},
       year={2024},
+      eprint={2401.06373},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
   }
 ```
 
 <br><br>
 
-## Special Thanks to OpenAI API Credits Grant
+## Special Thanks to OpenAI API Credits
 
 We would like to express our gratitude to OpenAI for providing us with ample API Research Credits after our preliminary disclosure. This financial support significantly assists us in our research on jailbreaking aligned LLMs through explainable Persuasive Adversarial Prompts (PAP) and exploring potential defense strategies. We firmly believe that such generous support will ultimately contribute to enhancing the safety and security of LLM systems in practical applications.
 
