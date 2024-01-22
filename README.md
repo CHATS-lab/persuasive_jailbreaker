@@ -41,7 +41,7 @@ Responsibly, we choose not to publicly release the complete attack code. However
 **TLDR:** Our Persuasive Adversarial Prompts are human-readable, achieving a **92%** Attack Success Rate on aligned LLMs, without specialized optimization.
 
 <br>
-**What did we introduce?** A taxonomy with 40 persuasion techniques to help you be more persuasive!<br>
+**What did we introduce?** A taxonomy with 40 persuasion techniques to help you be more persuasive!
 
 **What did we find?** By iteratively applying diffrent persuasion techniques in our taxonomy, we successfully jailbreak advanced aligned LLMs, including Llama 2-7b Chat, GPT-3.5, and GPT-4 — achieving an astonishing **92%** attack success rate, notably **without any specified optimization**.
 
