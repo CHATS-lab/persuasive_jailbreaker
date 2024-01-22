@@ -41,7 +41,7 @@ Responsibly, we choose not to publicly release the complete attack code. However
 **TLDR:** Our Persuasive Adversarial Prompts are human-readable, achieving a **92%** Attack Success Rate on aligned LLMs, without specialized optimization.
 
 <br>
-**What did we introduce?** A taxonomy with 40 persuasion techniques to help you be more persuasive!
+**What did we introduce?** A taxonomy with 40 persuasion techniques to help you be more persuasive!<br>
 
 **What did we find?** By iteratively applying diffrent persuasion techniques in our taxonomy, we successfully jailbreak advanced aligned LLMs, including Llama 2-7b Chat, GPT-3.5, and GPT-4 — achieving an astonishing **92%** attack success rate, notably **without any specified optimization**.
 
@@ -77,7 +77,6 @@ https://github.com/CHATS-lab/persuasive_jailbreaker/assets/61967882/3c04d83c-564
 <p align="center">
 <font size=3 >Overview of the taxonomy-guided Persuasive Adversarial Prompt (PAP) generation method.</font>
 </p>
-
 **A.** ***Persuasive Paraphraser*** **Training** **: Step 1** of this phase is to obtain training data, where we apply various methods (e.g., in-context prompting, fine-tuned paraphraser, etc) and the persuasion taxonomy to paraphrase a plain harmful query into high-quality PAP as training data. Then, in **Step 2,** we use the training data to fine-tune a *persuasive paraphraser* that can paraphrase harmful queries stably. 
 
 **B.** ***Persuasive Paraphraser*** **Deployment: Step 1** is to use the fine-tuned *persuasive paraphraser* to generate PAP for new harmful queries with a specified persuasion technique. Then, in **Step 2,** we will use a [GPT4-Judge](https://llm-tuning-safety.github.io/index.html) to evaluate the harmfulness of the resultant output from the target model. 
@@ -172,5 +171,4 @@ We would like to express our gratitude to OpenAI for providing us with ample API
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=CHATS-lab/persuasive_jailbreaker&type=Date)](https://star-history.com/#CHATS-lab/persuasive_jailbreaker&Date)
-
 
