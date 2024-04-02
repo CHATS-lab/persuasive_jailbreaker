@@ -25,7 +25,7 @@
 ------------
 ## Important update [April 2nd, 2024] 🚀
 
-We share an alternative method that eliminates the need to access harmful PAP examples and relies on fine-tuned GPT-3.5. 
+We share an alternative method for generating PAPs that eliminates the need to access harmful PAP examples and relies on fine-tuned GPT-3.5. 
 
 🔍 **What's New?**
 
