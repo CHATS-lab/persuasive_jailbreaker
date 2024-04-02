@@ -192,7 +192,7 @@ def persuasion_demo_mutation(template_request, text):
             if results != None:
                 break
         except Exception as err:
-            print('Exception occurs when calling GPT-3.5 for lingustic mutation:', err)
+            print('Exception occurs when calling GPT-4 for persuasive mutation:', err)
             print('Will sleep for ten seconds before retry...')
             time.sleep(10)
         
