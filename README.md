@@ -23,6 +23,17 @@
 </p>
 
 ------------
+## Important update [April 2nd, 2024] 🚀
+
+We share an alternative method that eliminates the need to access harmful PAP examples and relies on fine-tuned GPT-3.5. 
+
+🔍 **What's New?**
+
+The core of our update lies in the new directory: ```/PAP_Better_Incontext_Sample```. 
+
+📚 **How to Use?**
+
+Dive into the ```/PAP_Better_Incontext_Sample``` folder and explore ```test.ipynb``` to begin. This example will walk you through the process of sampling high quality PAPs of the Top-5 persuasive techniques.
 
 
 ## Reproducibility and Codes
