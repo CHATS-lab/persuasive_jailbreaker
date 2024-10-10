@@ -21,7 +21,6 @@
     <a href="https://arxiv.org/abs/2401.06373" target="_blank" style="text-decoration: none;">[arXiv]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://chats-lab.github.io/persuasive_jailbreaker/" target="_blank" style="text-decoration: none;">[Project Page]</a>
 </b>
 </p>
-------------
 
 ## Important update [Oct 9th, 2024] 🚀
 
