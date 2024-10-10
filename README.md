@@ -21,6 +21,12 @@
     <a href="https://arxiv.org/abs/2401.06373" target="_blank" style="text-decoration: none;">[arXiv]</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://chats-lab.github.io/persuasive_jailbreaker/" target="_blank" style="text-decoration: none;">[Project Page]</a>
 </b>
 </p>
+## Important update [Oct 9th, 2024] 🚀
+
+Since we disclosed our results earlier, the attack is less effective now after several months, so we decided to release the data in a more open format. 
+🔍 **What's New?**
+
+The data is now on [huggingface](https://huggingface.co/datasets/CHATS-Lab/Persuasive-Jailbreaker-Data)!  
 
 ------------
 ## Important update [April 2nd, 2024] 🚀
@@ -42,7 +48,7 @@ For safety concerns, in this repository we only release the persuasion taxonomy 
 
 To train a persuasive paraphraser, researchers can generate questions or use existing ones, employ `incontext_sampling_example.ipynb` for persuasion/attack. Subsequently, the results of these samplings can be evaluated either through manual annotation or by using [GPT-4 Judge](https://llm-tuning-safety.github.io/index.html), thereby generating data suitable for training.
 
-Responsibly, we choose not to publicly release the complete attack code. However, **for safety studies,** researchers can apply through [this Google Form](https://docs.google.com/forms/d/e/1FAIpQLSee-Kf4xrYHipZSjOImAW41VhcVcqmzc1MBo5XOYW7TrQ_9CQ/viewform?usp=sf_link). Upon approval, we will release the jailbreak data on the [advbench](https://llm-attacks.org/) sub-dataset(refined by  [Chao et al.](https://github.com/patrickrchao/JailbreakingLLMs)) to the applicants. Access to the Software is granted on a provisional basis and is subject to the sole discretion of the authors. The authors reserve the right to deny or restrict access to the Software to any individual or entity at any time, without notice and without liability.
+Responsibly, we choose not to publicly release the complete attack code. However, **for safety studies,** researchers can access the data [huggingface](https://huggingface.co/datasets/CHATS-Lab/Persuasive-Jailbreaker-Data)! After signing the release form, you will get the jailbreak data on the [advbench](https://llm-attacks.org/) sub-dataset(refined by  [Chao et al.](https://github.com/patrickrchao/JailbreakingLLMs)) to the applicants. Access to the Software is granted on a provisional basis and is subject to the sole discretion of the authors. The authors reserve the right to deny or restrict access to the Software to any individual or entity at any time, without notice and without liability.
 
 <br>
 <br>
